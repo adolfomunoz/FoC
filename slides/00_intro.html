@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../external/reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../external/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../external/reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../external/reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="title">
+					<h2>Introduction</h2>
+					<img src="img/programming.jpg" height="250px"/>
+					<h4>Fundamentals on Computing for Robotics, Graphics and Computer Vision</h4>
+					Darío Suárez - Adolfo Muñoz
+				</section>
+				<section>
+					<h2>hello-world.cc</h2>
+					Lo he comentado porque no funciona el plugin de incluir código fuente si no 
+					se lanza desde un servidor
+					<!--<code data-code="../src/hello-world.cc" data-trim></code> -->
+				</section>
+				<section>
+					<section>
+						<h2>Why this course?</h2>
+						Students without a strong programming background sometimes find <strong>challenges</strong> on other courses that are not related to the course itself but due to lack of knowledge of good <strong>programming practices</strong>. 
+					</section>
+					<section>
+						<h2>Requirements</h2>
+						<ul>
+						<li class="fragment fade-in">
+						Some programming background in any language.
+						</li>
+						</ul>
+					</section>
+					<section>
+					
+					</section>
+				</section>
+				<section>
+					<h2>Teachers</h2>
+					<ul>
+						<li>Darío Suárez - <code>dario@unizar.es</code></li>
+						<li>Adolfo Muñoz - <code>adolfo@unizar.es</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="../external/reveal.js/dist/reveal.js"></script>
+		<script src="../external/reveal.js/plugin/notes/notes.js"></script>
+		<script src="../external/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../external/reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				,dependencies: [
+				{ src: '../external/reveal.js-plugin-externalcode/externalcode.js', condition: function() { return !!document.querySelector( '[data-code]' ); } }]		});
+		</script>
+		<style type="text/css">
+			/* 1. Style header/footer <div> so they are positioned as desired. */
+			.header-left {
+				position: absolute;
+				top: 1%;
+				left: 1%;
+				font-size: 0.4em;
+			}
+			.header-right {
+				position: absolute;
+				top: 1%;
+				right: 1%;
+				font-size: 0.4em;
+			}
+			.footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 1%;
+				font-size: 0.4em;
+			}
+		</style>
+
+		<!-- 2. Create hidden header/footer <div> -->
+		<div id="hidden" style="display:none;">
+			<div id="header">
+				<div class="header-left">Introduction</div>
+				<div class="header-right">Fundamentals on Computing for Robotics, Graphics and Computer Vision</div>
+				<div class="footer-left"><img height="60px" width="auto" src="img/unizar-logo.png"/></div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript">
+			// 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+			var header = $('#header').html();
+			if ( window.location.search.match( /print-pdf/gi ) ) {
+				Reveal.addEventListener( 'ready', function( event ) {
+					$('.slide-background:not(.title)').append(header);
+				});
+			}
+			else {
+				$('.slide-background:not(.title)').append(header);
+		   }
+		</script>
+
+	</body>
+</html>
