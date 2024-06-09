@@ -1,6 +1,3 @@
 [submodule "external/reveal.js"]
 	path = external/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
-[submodule "external/reveal.js-plugin-externalcode"]
-	path = external/reveal.js-plugin-externalcode
-	url = https://github.com/pquerna/reveal.js-plugin-externalcode.git
