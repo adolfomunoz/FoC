@@ -8,8 +8,6 @@ plugins_dir         : jekyll/_plugins # takes an array of strings and loads plug
 layouts_dir         : jekyll/_layouts
 data_dir            : jekyll/_data
 includes_dir        : jekyll/_includes
-sass:
-  sass_dir: jekyll/_sass
   
 collections:
   slides:

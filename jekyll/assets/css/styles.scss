@@ -1,4 +1,153 @@
 ---
 ---
-@import "colors";
-@import "main";
+@charset "utf-8";
+
+$color-primary:            #0D4C5E !default;
+$color-primary-opposite:   #FFFFFF !default;
+$color-secondary:          #DDDDDD !default;
+$color-secondary-opposite: #000000 !default;
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 13px;
+    font-size: 2.5vw;
+  }
+}
+
+div {
+  padding: 1px;
+}
+
+body>div {
+  margin: 12px;
+}
+
+div.content {
+  margin: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+div.content>div {
+  overflow: auto;
+  width: 100%;
+}
+
+div.content>div>div {
+
+}
+
+div.content>div>img {
+  float:left;
+}
+
+div.content>div>div:not(:last-child) {
+  padding-right: 10px;
+}
+
+div.content>div>div:last-child {
+}
+
+div.content>div>img:not(:last-child) {
+  float:left;
+  padding-right: 10px;
+}
+
+h1 {
+  border-bottom: 1px solid $color-secondary;
+  display: block;
+  font-size: 2em;
+  margin-top: 0em;
+  margin-bottom: 0.2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+h2 {
+  display: block;
+  font-size: 1.4em;
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+h3 {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0.1em;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+h4 {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: black;
+}
+
+h5 {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0px;
+  font-weight: bold;
+  color: black;
+}
+
+h6 {
+  display: inline;
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+a:visited {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+a:hover {
+  background-color: $color-secondary;
+  color: $color-secondary-opposite;
+}
+
+a:active {
+  color: $color-primary;
+  text-decoration: underline;
+}
+
+
+
+
