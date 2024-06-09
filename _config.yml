@@ -2,12 +2,12 @@ baseurl: "/FoC"
 url: "adolfomunoz.github.io"
 
 source              : .
-destination         : ./jekyll_site
+destination         : ./jekyll/_site
 collections_dir     : .
 plugins_dir         : jekyll/_plugins # takes an array of strings and loads plugins in that order
 layouts_dir         : jekyll/_layouts
 data_dir            : jekyll/_data
-includes_dir        : jekyll/_includes
+includes_dir        : .
   
 collections:
   slides:
