@@ -1,4 +1,4 @@
- baseurl: "/FoC"
+baseurl: "/FoC"
 url: "adolfomunoz.github.io"
 
 source              : .
@@ -20,3 +20,5 @@ defaults:
       type: slides
     values:
       layout: slide
+
+exclude: [external/reveal.js/test/simple.md, external/reveal.js-plugin-externalcode/README.md, external/reveal.js/css/theme/README.md, external/reveal.js/examples/markdown.md]
