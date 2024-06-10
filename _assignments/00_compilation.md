@@ -14,5 +14,5 @@ $ ./your_file
 
 The first command takes `<your_file>.cpp` as an input for `g++`, and creates an executable file `your_file` in the current folder. 
 
-Now, take the file `hello_world.cpp` in the `src` directory on the repository 
+Now, take the file `hello_world.cpp` in the `src` directory on the repository, compile and execute it. What does it do? 
 
