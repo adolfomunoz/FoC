@@ -27,6 +27,6 @@ defaults:
       path: ""
       type: assignments
     values:
-      layout: assignments
+      layout: assignment
 
 exclude: [external/reveal.js/test/simple.md, external/reveal.js-plugin-externalcode/README.md, external/reveal.js/css/theme/README.md, external/reveal.js/examples/markdown.md]
