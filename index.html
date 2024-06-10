@@ -16,3 +16,12 @@ title: Fundamentals on Computing
 {% endfor %}
 </ul>
 
+<h2>Assignments</h2>
+
+<ul>
+{% for ass in site.assignments %}
+	<li><a href="{{site.baseurl}}{{ ass.url }}">{{ass.title}}</a></li>
+{% endfor %}
+</ul>
+
+

@@ -13,6 +13,9 @@ collections:
   slides:
     output: true
     permalink: /:collection/:name/
+  assignments:
+    output: true
+    permalink: /:collection/:name/
 
 defaults:
   - scope:
@@ -20,5 +23,10 @@ defaults:
       type: slides
     values:
       layout: slide
+  - scope:
+      path: ""
+      type: assignments
+    values:
+      layout: assignments
 
 exclude: [external/reveal.js/test/simple.md, external/reveal.js-plugin-externalcode/README.md, external/reveal.js/css/theme/README.md, external/reveal.js/examples/markdown.md]
