@@ -10,9 +10,10 @@
   </head>
   <body>
 	  <div class="header">
-	  <img src="{{ site.baseurl }}/{{ page.logo | default: site.logo }}" style="padding-top:0.5cm;padding-right:1cm;float:left;display:inline;max-height:2cm;max-width:50%;"/>
-	  <p style="font-size:1.5em;font-variant:small-caps;">{{page.title}}</p>
-	  <p style="font-size:1.1em;">{{ site.course }}</p>
+	  <img src="{{ site.baseurl }}/{{ page.logo | default: site.logo }}" style="padding-top:0.25cm;padding-right:1cm;float:left;display:inline;max-height:2cm;max-width:50%;"/>
+	  <p><span style="font-size:1.7em;font-variant:small-caps;font-weight:bold;">{{page.title}}</span><br/>
+	  <span style="font-size:1.1em;font-style: italic;">{{ site.course }}</span>
+	  </p>
 	  </div>
       <div class="content"> 
       {{ content }}
