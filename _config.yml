@@ -30,3 +30,8 @@ defaults:
       layout: assignment
 
 exclude: [external/reveal.js/test/simple.md, external/reveal.js-plugin-externalcode/README.md, external/reveal.js/css/theme/README.md, external/reveal.js/examples/markdown.md]
+
+course: Fundamentals on Computing for Robotics, Graphics and Computer Vision
+logo: img/unizar-logo.png
+author: Darío Suárez - Adolfo Muñoz
+frontpage: img/programming.jpg

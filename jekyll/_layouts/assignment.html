@@ -3,13 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ site.baseurl }}/jekyll/css/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/jekyll/css/assignment.css">
     <title>{{ page.title }}</title>
 <!--    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png" /> -->
 
   </head>
   <body>
-      <div> 
+	  <div class="header">
+	  <img src="{{ site.baseurl }}/{{ page.logo | default: site.logo }}"/>
+	  <p style="font-size:1.2em;font-variant:small-caps;">{{page.title}}</p>
+	  <p style="font-size:0.9em;">{{ site.course }}</p>
+	  </div>
+      <div class="content"> 
       {{ content }}
       </div>
   </body>

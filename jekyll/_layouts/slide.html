@@ -18,9 +18,9 @@
 			<div class="slides">
 				<section class="title">
 					<h2>{{ page.title }}</h2>
-					<img src="{{ site.baseurl }}/img/programming.jpg" height="250px"/>
-					<h4>Fundamentals on Computing for Robotics, Graphics and Computer Vision</h4>
-					Darío Suárez - Adolfo Muñoz
+					<img src="{{ site.baseurl }}/{{ page.frontpage | default: site.frontpage }}" height="250px"/>
+					<h4>{{ site.course }}</h4>
+					{{ site.author }}
 				</section>
 				{{ content }}
 			</div>
@@ -79,8 +79,8 @@
 		<div id="hidden" style="display:none;">
 			<div id="header">
 				<div class="header-left">{{ page.title }}</div>
-				<div class="header-right">Fundamentals on Computing for Robotics, Graphics and Computer Vision</div>
-				<div class="footer-left"><img height="60px" width="auto" src="{{ site.baseurl }}/img/unizar-logo.png"/></div>
+				<div class="header-right">{{ site.course }}</div>
+				<div class="footer-left"><img height="60px" width="auto" src="{{ site.baseurl }}/{{ page.logo | default: site.logo }}"/></div>
 			</div>
 		</div>
 
