@@ -25,7 +25,8 @@ body {
 
 .header img {
 	display: inline-block;
-	height: 3cm;
+	height: 2cm;
+	float:left;
 }
 
 @media screen and (max-width: 600px) {
