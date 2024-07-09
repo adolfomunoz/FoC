@@ -21,5 +21,14 @@ We recommend the second option (the package manager) because we consider it to b
 
 ## Manual installation
 
+### g++
+
+For manually installing 'g++' on Windows, you need to download *MinGW*, which is the the version of the C++ compliler that better works on Windows. You can download the installer from [here](https://nuwen.net/mingw.html), particularly the file 'mingw-19.0.exe' (or newer if there is one). You need to execute the installer, following the [instructions](https://nuwen.net/mingw.html#install).
+
+We recommend to install it on the default folder, 'C:\', which will create 'C:\MinGW'. 
+
+You will then need to set up some *environment variables* (search for "environment variables" on Windows):
+- Add 'C:\MinGW\bin' to the 'PATH' environment variable.
+
 
 ## Package manager
