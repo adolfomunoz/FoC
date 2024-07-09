@@ -4,7 +4,7 @@ title: Imperative programming
 <section>
 
 <section>
-	<h1>hello-world.cpp</h1>
+	<h2>hello-world.cpp</h2>
 	<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 	{%- include src/hello-world.cpp -%}
     </script></code></pre>
@@ -35,26 +35,87 @@ title: Imperative programming
 
 <section>
 	<section>
-	<h1>Sequetial composition</h1>
-	Instructions are executed in order from the beginning `{` to the end `}`
+	<h1>Sequential composition</h1>
+	Instructions are executed in order from the beginning <pre>{</pre> to the end <pre>}</pre>
 	</section>
 	<section>
-		<h1>hello-world.cpp</h1>
+	<h1>Sequential composition</h1>
+	<pre><code class="hljs cpp" data-trim data-line-numbers="1,5|2|3|4">
+		{
+		    instruction1();
+			instruction2();
+			instruction3();
+		}
+		</code></pre>	
+	</section>
+	<section>
+		<h2>hello-world.cpp</h2>
 		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 		{%- include src/hello-world.cpp -%}
 		</script></code></pre>
 	</section>
 	<section>
-		<h1>presentation.cpp</h1>
+		<h2>presentation.cpp</h2>
 		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 		{%- include src/presentation.cpp -%}
 		</script></code></pre>
 	</section>
 	<section>
-		<h1>addition.cpp</h1>
+		<h2>addition.cpp</h2>
 		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 		{%- include src/addition.cpp -%}
 		</script></code></pre>
 	</section>
+	<section>
+		<h1>Thinking sequential</h1>
+		<ul>
+			<li>Identify actions of the sequence</li>
+			<li>Identify variables that define the state between actions within the sequence</li>
+			<li>Identify order of the actions
+				<ul>
+					<li>Total order</li>
+					<li>Partial order</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Problem</h2>
+		<blockquote>
+		Implement a program that asks the user for a 2-digit natural number and shows the user the addition of both digits.
+		</blockquote>
+	</section>
+
 </section>
 
+<section>
+	<section>
+	<h1>Conditional composition</h1>
+	Only one of two instructions is executed, depending on a condition.
+	</section>
+
+	<section data-background="img/conditional.jpg" data-background-size="contain"/>
+
+	<section>
+		<h1>Conditional composition</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1|2|1|4">
+			if (condition)
+				instructiontrue();
+			else
+				instructionfalse();
+			</code></pre>	
+	</section>
+
+	<section>
+		<h1>Conditional composition</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1|2-3|1|4-5">
+			if (condition) {
+				instructiontrue_01();
+				instructiontrue_02();
+			} else {
+				instructionfalse_01();
+				instructionfalse_02();
+			}
+			</code></pre>	
+	</section>
+</section>
