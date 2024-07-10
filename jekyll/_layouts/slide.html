@@ -16,7 +16,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section class="title">
+				<section class="clean">
 					<h2>{{ page.title }}</h2>
 					<img src="{{ site.baseurl }}/{{ page.frontpage | default: site.frontpage }}" height="250px"/>
 					<h4>{{ site.course }}</h4>
@@ -90,11 +90,11 @@
 			var header = $('#header').html();
 			if ( window.location.search.match( /print-pdf/gi ) ) {
 				Reveal.addEventListener( 'ready', function( event ) {
-					$('.slide-background:not(.title)').append(header);
+					$('.slide-background:not(.clean)').append(header);
 				});
 			}
 			else {
-				$('.slide-background:not(.title)').append(header);
+				$('.slide-background:not(.clean)').append(header);
 		   }
 		</script>
 
