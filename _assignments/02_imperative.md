@@ -30,4 +30,4 @@ The source code that solves the proposed problem should be in a file named **`ca
 g++ calculator.cpp -o calculator
 ```
 
-{% include jekyll/includes/submission.md filename=calculator %}
+{% include jekyll/includes/submission.md filename="calculator" %}
