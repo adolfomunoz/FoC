@@ -146,3 +146,50 @@ title: Imperative programming
 		</blockquote>
 	</section>
 </section>
+
+<section>
+	<section>
+	<h1>Iterative composition</h1>
+	An instruction (set) is continuosly executed several times until a condition is not met.
+
+	Solves unbounded problems.
+	</section>
+
+	<section class="clean" data-background="{{ site.baseurl }}/img/iterative.jpg" data-background-size="contain">
+	</section>
+
+	<section>
+		<h1>Iterative composition</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1|2|1|2|1|2|1|3">
+			while (condition)
+				instruction();
+			instruction_next();
+			</code></pre>	
+	</section>
+
+	<section>
+		<h1>Iterative composition</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1|2-3|1|2-3|1|2-3|1|5">
+			while (condition) {
+				instruction_01();
+				instruction_02();
+			}	
+			instruction_next();
+			</code></pre>	
+	</section>
+
+	<section>
+		<h1>Thinking iterative</h1>
+		<ul>
+			<li>Identify initial state / trivial solution</li>
+			<li>Identify recurrence rule / instructions / induction process</li>
+			<li>Identify condition / last step</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Problem</h2>
+		<blockquote>
+		Implement a program that calculates the factorial of a natural number.
+		</blockquote>
+	</section>
+</section>
