@@ -2,6 +2,8 @@
 title: Compilation
 ---
 
+**COMENTARIO: Esta practica chorras igual es mejor no hacerla per se. Dejo el enunciado pero idealmente lo eliminaremos**
+
 # First C++ compilation
 
 For this assignment you will only need a C++ compiler. We recommend you to install `g++`, but others such as `clang` can be used as well.

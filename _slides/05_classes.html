@@ -1,0 +1,66 @@
+---
+title: Object Oriented Programming - Classes
+---
+<section>
+	<section data-markdown>
+		<textarea data-template>
+		# Data abstraction
+	
+		In a big project using a particular data type you would need:
+	
+		- A data struture that represents such data type.
+		- A set of functions that access such data type.
+		</textarea>
+	</section>
+
+	<section>
+		<h1>Data abstraction</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-4|1|2-4">
+		struct Rational { int num, den; };
+		Rational create(int n, int d);
+		Rational simplify(const Rational& r);
+		Rational add(const Rational& r1, const Rational& r2);  
+		</code></pre>
+	</section>
+	<section data-markdown>
+		<textarea data-template>
+		# Data abstraction
+
+		- Following this methodology, you would be creating an **abstract** data type.
+		- Your program would not need to directly access the data structure and only the functions.
+		- You would not need to know the *implementation* of the data type.
+		</textarea>
+	</section>
+	<section data-markdown>
+		<textarea data-template>
+		## Conclusion
+
+		# Data abstraction
+		is a
+		# good idea	
+		</textarea>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2 class="r-fit-text">Object Oriented Programming = OOP</h2>
+	</section>
+	<section data-markdown>
+		<textarea data-template>
+		# OOP - Goals
+	
+		- Fully hide data structure implementation details.
+		- Focus software design into data structures and their relations.
+		</textarea>
+	</section>
+	<section data-markdown>
+		<textarea data-template>
+		# OOP - Naming
+
+		- **Class**: data type
+		- **Object**: variable with a value of a data type.
+		- An **object** is an **instance** of a **class**.
+		</textarea>
+	</section>
+</section>
