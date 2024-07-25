@@ -63,4 +63,67 @@ title: Object Oriented Programming - Classes
 		- An **object** is an **instance** of a **class**.
 		</textarea>
 	</section>
+	<section>
+		<table width="100%"">
+			<tr><th>Abstract type</th><th>Class</th></tr>
+			<tr class="fragment">
+				<td>Type and variable
+
+					<pre><code class="hljs cpp" data-trim>
+						struct String { ... };
+						...
+						String str;
+					</code></pre>	
+
+				</td>
+				<td>Class and object
+
+					<pre><code class="hljs cpp" data-trim>
+						class String { ... };
+						...
+						String str;
+					</code></pre>	
+
+				</td>
+			</tr>
+			<tr class="fragment">
+				<td>Functions
+					<pre><code class="hljs cpp" data-trim>
+						l = length(str);
+						clear(str);
+					</code></pre>	
+
+				</td>
+				<td>Methods (messages)
+
+					<pre><code class="hljs cpp" data-trim>
+						l = str.length();
+						str.clear();
+					</code></pre>	
+
+				</td>
+			</tr>		
+			<tr class="fragment">
+				<td>Function parameters
+					<pre><code class="hljs cpp" data-trim>
+						fill(str,16,'x');
+						fill(str,4,'o');
+					</code></pre>	
+
+				</td>
+				<td>Method parameters
+					<pre><code class="hljs cpp" data-trim>
+						str.fill(16,'x');
+						str.fill(4,'o');
+					</code></pre>	
+				</td>
+			</tr>				
+		</table>
+	</section>
+	<section>
+		<p>Are we just doing the same thing and just changing the syntax?</p><br/>
+
+		<h1 class="fragment">YES</h1>
+		<p class="fragment">(for now)</p>
+	</section>
 </section>
