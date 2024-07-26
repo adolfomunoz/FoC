@@ -127,3 +127,123 @@ title: Object Oriented Programming - Classes
 		<p class="fragment">(for now)</p>
 	</section>
 </section>
+
+<section>
+	<section>
+		<h1>Classes</h1>
+
+		<p>A class consists on <strong>attributes</strong> and <strong>methods</strong></p>
+	</section>
+
+	<section>
+		<h1>Classes</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-8|2-3|5-7">
+			class Class {
+				typeA1 attribute1;
+				typeA2 attribute2;
+				...
+				typeM1 method(parameters) {
+					implementation;
+				}
+			}; 
+			</code></pre>
+	</section>
+
+	<section>
+		<h1>Classes</h1>
+
+		A <strong>class</strong> without methods is identical to a <strong>struct</strong>.
+
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+			class Class {
+				typeA1 attribute1;
+				typeA2 attribute2;
+			}; 
+			</code></pre>
+	</section>
+
+	<section>
+		<table width="100%">
+		<tr><th width="50%">Abstract type</th><th width="50%">Class</th></tr>
+		<tr>
+			<td width="50%"><pre><code class="hljs cpp" data-trim>
+					struct String { 
+						int size;
+						char text[256]; 
+					};
+
+					void fill(String& str, int count, char c) {
+						str.size = count;
+						for (int i = 0; i < count; ++i)
+							str.text[i] = c; 
+					} 
+					...
+					String s;
+					fill(s,16,'x');
+				</code></pre>	
+			</td>
+			<td class="fragment" width="50%">
+				<pre><code class="hljs cpp" data-trim>
+					class String { 
+						int size;
+						char text[256]; 
+
+						void fill(int count, char c) {
+							this->size = count;
+							for (int i = 0; i < count; ++i)
+								this->text[i] = c; 
+							} 
+					};
+					...
+					String s;
+					s.fill(16,'x');
+				</code></pre>	
+			</td>
+		</tr>
+	</table>		
+	</section>
+	<section data-markdown>
+		<textarea data-template>
+		# Classes
+
+		- Methods are functions with *hidden* parameter `this`.
+		- `this` is a pointer to the object that invokes the method.
+		</textarea>
+	</section>
+
+	<section>
+		<code>this</code> can be omitted if there are no ambiguities.
+
+		<table width="100%">
+		<tr>
+			<td width="50%"><pre><code class="hljs cpp" data-trim>
+				class String { 
+					int size;
+					char text[256]; 
+
+					void fill(int count, char c) {
+						this->size = count;
+						for (int i = 0; i < count; ++i)
+							this->text[i] = c; 
+						} 
+				};
+				</code></pre>	
+			</td>
+			<td class="fragment" width="50%">
+				<pre><code class="hljs cpp" data-trim>
+					class String { 
+						int size;
+						char text[256]; 
+	
+						void fill(int count, char c) {
+							size = count;
+							for (int i = 0; i < count; ++i)
+								text[i] = c; 
+							} 
+					};
+				</code></pre>	
+			</td>
+		</tr>
+	</table>		
+	</section>
+</section>
