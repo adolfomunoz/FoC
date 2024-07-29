@@ -177,7 +177,18 @@ title: Imperative programming
 			instruction_next();
 			</code></pre>	
 	</section>
-
+	<section>
+		<h2>count-digits.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		{%- include src/count-digits.cpp -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>power.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		{%- include src/power.cpp -%}
+		</script></code></pre>
+	</section>
 	<section>
 		<h1>Thinking iterative</h1>
 		<ul>
@@ -190,6 +201,56 @@ title: Imperative programming
 		<h2>Problem</h2>
 		<blockquote>
 		Implement a program that calculates the factorial of a natural number.
+		</blockquote>
+	</section>
+</section>
+<section>
+	<section>
+	<h1><code>for</code> loops</h1>
+	
+	<table width="100%">
+		<tr>
+			<td width="50%"><pre><code class="hljs cpp" data-trim>
+				[initialization] 
+				while([condition]) 
+				{
+					[instructions]
+					[iteration]		
+				} 
+				</code></pre>	
+			</td>
+			<td class="fragment" width="50%">
+				<pre><code class="hljs cpp" data-trim>
+					for ([initialization];[condition];[iteration]) 
+					{
+						[instructions]	
+					} 
+				</code></pre>	
+			</td>
+		</tr>
+	</table>		
+	</section>
+	<section>
+		<table width="100%">
+			<tr>
+				<td width="50%">
+					<pre><code class="hljs cpp" data-trim><script type="text/template">
+					{%- include src/power.cpp -%}
+					</script></code></pre>	
+				</td>
+				<td class="fragment" width="50%">
+					<pre><code class="hljs cpp" data-trim><script type="text/template">
+					{%- include src/power-for.cpp -%}
+					</script></code></pre>	
+				</td>
+			</tr>
+		</table>		
+	</section>
+	<section>
+		<h2>Problem</h2>
+		<blockquote>
+		Implement a program that calculates the factorial of a natural number, 
+		using <code>for</code> loops
 		</blockquote>
 	</section>
 </section>
