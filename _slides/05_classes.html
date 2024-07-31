@@ -246,11 +246,40 @@ title: Object Oriented Programming - Classes
 		</tr>
 	</table>		
 	</section>
+	<section>
+		<h1>Visibility</h1>
+		<ul>
+			<li><b><code>private:</code> </b> Cannot access except from within the class</li>
+			<li><b><code>public:</code> </b> Can access from everywhere</li>
+		</ul>
+		<p><b>Usually:</b> private attributes and public methods</p>
+	</section>
+	<section>
+		<h1>Visibility</h1>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-11|2,5">
+			class String { 
+			private:
+				int size;
+				char text[256]; 
+			public:
+				void fill(int count, char c) {
+					size = count;
+					for (int i = 0; i < count; ++i)
+						text[i] = c; 
+					} 
+			};
+		</code></pre>	
+	</section>
 </section>
 
 <section>
 	<section>
 		<h1>Constructors</h1>
+		<p>Methods that define operations executed when creating an object</p>
+	</section>
+
+	<section>
+
 	</section>
 </section>
 
