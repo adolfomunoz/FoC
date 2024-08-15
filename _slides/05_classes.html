@@ -279,18 +279,166 @@ title: Object Oriented Programming - Classes
 	</section>
 
 	<section>
+		<p><strong>Constructors:</strong> for setting up default attribute values.</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-8|5-7">
+			class Complex { 
+			private:
+				float _real, _imag; 
+			public:
+				Complex() {
+					_real = _imag = 0;
+				} 
+			};
+		</code></pre>
+		<pre class="fragment"><code class="hljs cpp" data-trim data-line-numbers>
+			Complex c; 
+			// c._real = 0; c._image = 0;
+			Complex* pc = new Complex;
+			// pc->_real = 0; pc->_imag = 0;
+		</code></pre>		
+	</section>
+	<section>
+		<p><strong>Constructors:</strong> for setting up parametrized attribute values regardless of visibility.</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-8|5-7">
+			class Complex { 
+			private:
+				float _real, _imag; 
+			public:
+				Complex(float real, float imag) {
+					_real = real; _imag = imag;
+				} 
+			};
+		</code></pre>
+		<pre class="fragment"><code class="hljs cpp" data-trim data-line-numbers>
+			// Complex c;  Complex* pc = new Complex <-- Can't do these
+			Complex c(1,0); 
+			//c._real=1; c._imag=0;
+			Complex* pc = new Complex(1,0);
+			// pc->_real = 1; pc->_imag = 0;
+		</code></pre>		
+	</section>
 
+	<section data-auto-animate>
+		<p>What happens when using classes as attributes?</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+			class ElectromagneticWave {
+			private:
+				Complex phasor_vertical, phasor_horizontal;
+			public:
+				ElectromagneticWave() {
+					phasor_vertical = Complex(0,-1);
+					phasor_horizontal = Complex(1,0);
+				} 
+			} 
+		</code></pre>
+		<p>Does not compile if <code>Complex()</code> does not exist (needs to construct attributes)</p>
+	</section>
+
+	<section data-auto-animate>
+		<p>What happens when using classes as attributes?</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+			class ElectromagneticWave {
+			private:
+				Complex phasor_vertical, phasor_horizontal;
+			public:
+				ElectromagneticWave() :
+					phasor_vertical(0,-1), phasor_horizontal(1,0) {} 
+		</code></pre>
+		<p>It actually invokes the constructores.</p>
+	</section>
+
+
+	<section>
+		<p><strong>Constructors:</strong> more versatile with default parameter values.</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-8|5">
+			class Complex { 
+			private:
+				float _real, _imag; 
+			public:
+				Complex(float real = 0, float imag = 0) {
+					_real = real; _imag = imag;
+				} 
+			};
+		</code></pre>
+		<pre class="fragment"><code class="hljs cpp" data-trim data-line-numbers>
+			Complex c1; // c1._real=0; c._imag=0;
+			Complex c2(1,1); // c2._real=1; c2._imag=1;
+			Complex c3(-1);  // c3._real=-1; c3._imag=0;
+			Complex c4 = 2;  // c4._real=2; c4._imag=0;
+		</code></pre>		
+	</section>
+
+	<section>
+		<p><strong>Constructors:</strong> can be used to reserve resources (such as memory)</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-9|6-8">
+			class VectorInt { 
+			private:
+				int* data;
+				int size;
+			public:
+				VectorInt(int s) {
+					size = s; data = new int[s]; 
+				} 
+			};
+		</code></pre>
+		<pre class="fragment"><code class="hljs cpp" data-trim data-line-numbers>
+		{		
+			VectorInt vi(128);
+			...
+		}	
+		</code></pre>
+		<p class="fragment">What about freeing that memory?</p>		
 	</section>
 </section>
 
 <section>
 	<section>
 		<h1>Destructors</h1>
+		<p>Methods that define operations executed when object dissappears from memory</p>
 	</section>
-</section>
-
-<section>
-	<section>
-		<h1>Compilation</h1>
+	
+	<section data-auto-animate>
+		<p><strong>Destructors</strong></p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-9|6-8">
+			class VectorInt { 
+			private:
+				int* data;
+				int size;
+			public:
+				VectorInt(int s) {
+					size = s; data = new int[s]; 
+				} 
+			};
+		</code></pre>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+		{		
+			VectorInt vi(128);
+			...
+		} // vi dissappears here
+		</code></pre>
+	</section>
+	<section data-auto-animate>
+		<p><strong>Destructors</strong></p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-12|9-11">
+			class VectorInt { 
+			private:
+				int* data;
+				int size;
+			public:
+				VectorInt(int s) {
+					size = s; data = new int[s]; 
+				} 
+				~VectorInt() {
+					delete[] data; 
+				} 	
+			};
+		</code></pre>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+		{		
+			VectorInt vi(128);
+			...
+		} // vi dissappears here
+		</code></pre>
+		<p class="fragment">The data is now deleted seamlessly</p>
 	</section>
 </section>
