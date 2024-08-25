@@ -132,7 +132,7 @@ title: Object Oriented Programming - Classes
 	<section>
 		<h1>Classes</h1>
 
-		<p>A class consists on <strong>attributes</strong> and <strong>methods</strong></p>
+		<p>A class consists on <strong>attributes</strong> and <strong>methods</strong> (or member functions)</p>
 	</section>
 
 	<section>
@@ -440,5 +440,66 @@ title: Object Oriented Programming - Classes
 		} // vi dissappears here
 		</code></pre>
 		<p class="fragment">The data is now deleted seamlessly</p>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h1>Operator overloading</h1>
+		<p>Methods with special names are interpreted as operators.</p>
+	</section>
+
+	<section>
+		<p><strong>Operators:</strong> can be defined as methods with special names</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-11|8-10">
+			class Complex { 
+			private:
+				float _real, _imag; 
+			public:
+				Complex(float real = 0, float imag = 0) {
+					_real = real; _imag = imag;
+				} 
+				Complex operator+(const Complex& that) const {
+					return Complex(this->_real+that._real,this->_image+that._image);
+				} 
+			};
+		</code></pre>
+	</section>
+	<section>
+		<p><strong>Operators:</strong> some of them can only be functions</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-13|11-13">
+			class Complex { 
+			private:
+				float _real, _imag; 
+			public:
+				Complex(float real = 0, float imag = 0) {
+					_real = real; _imag = imag;
+				} 
+				float real() const { return _real; }  
+				float imag() const { return _imag; }  
+			};
+			std::ostream& operator<<(std::ostream& os, const Complex& c) {
+				os<<c.real()<<" + "<<c.imag()<<"i"; return os;
+			} 
+		</code></pre>
+	</section>
+	<section>
+		<p><strong>Operators:</strong> some of them can only be methods</p>
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-13|11-13">
+			class VectorInt { 
+			private:
+				int* data;
+				int size;
+			public:
+				VectorInt(int s) {
+					size = s; data = new int[s]; 
+				} 
+				~VectorInt() {
+					delete[] data; 
+				} 	
+				int& operator[](int i) { return data[i]; }  
+				int operator[](int i) const { return data[i]; }  
+			};
+		</code></pre>
 	</section>
 </section>
