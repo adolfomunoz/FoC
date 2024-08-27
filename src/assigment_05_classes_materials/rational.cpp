@@ -1,13 +1,15 @@
 #include "rational.h"
 
 // Auxiliar functions, private
-int mcd(int a, int b) {
-	return ( b==0 ? a : mcd(b,a%b) );
+int gcf(int a, int b) {
+	return ( b==0 ? a : gcf(b,a%b) );
 }
 
 // Initialize
 Rational rational(int num, int den) {
-	Rational r; r.num=num; r.den=den; return r;
+	Rational r; 
+	int m = gcf(num,den);
+	r.num=num/m; r.den=den/m; return r;
 }
 
 // Input/output
