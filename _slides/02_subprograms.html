@@ -93,4 +93,67 @@ title: Subprograms
         </ul>
     </section>
 
+    <section>
+        <h3>Advantages</h3>
+        <ul>
+            <li>Legibility (shorter code)</li>
+            <li>Mantainability (bugs/changes are easily located)</li>
+            <li>You <strong>don't repeat yourself</strong></li>
+        </ul>    
+    </section>
+</section>
+<section>
+    <section>
+        <h2 class="r-fit-text">Subprograms</h2>
+        <p class="r-fit-text">are represented in C++ as</p>
+        <h2 class="r-fit-text">functions</h2>
+    </section>
+    <section data-auto-animate>
+        <h2>Function specification</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+		    return_type function_name(type1 parameter1, type2 parameter2);	
+		</code></pre>
+    </section>
+    <section data-auto-animate>
+        <h2>Function specification</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+            /**
+             * The function function_name does ...
+             * parameter1 represents ...
+             * parameter2 is ...
+             * returns the result ...
+             **/
+		    return_type function_name(type1 parameter1, type2 parameter2);	
+		</code></pre>
+    </section>
+    <section>
+        <h2>Specification example</h2>
+        <pre><code class="hljs cpp" data-trim>
+            /**
+             * The function repeat outputs the same charater a number of times.
+             * 
+             * n represents the number of times
+             * c is the character that is repeated
+             * The function returns nothing
+             */
+            void repeat(int n, char c);	
+		</code></pre>
+    </section>
+    <section>
+        <h2>Specification example</h2>
+        <pre><code class="hljs cpp" data-trim>
+            /**
+             * The function gcf calculates the greatest common factor
+             * between two numbers.
+             * 
+             * a y b are the two numbers
+             * The function returns the calculated greatest common factor
+             */
+            int gcf(int a, int b);	
+		</code></pre>
+    </section>
+    <section>
+        <h2>Online documentation</h2>
+        <h3><a href="http://github.com/antirez/smaz">link</a></h3>
+    </section>
 </section>
