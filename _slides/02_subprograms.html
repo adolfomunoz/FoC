@@ -156,15 +156,205 @@ title: Subprograms
         <h2>Online documentation</h2>
         <h3><a href="http://github.com/antirez/smaz">link</a></h3>
     </section>
-
-    <section>
-        <h1>Reference parameters</h1>
-    </section>
 </section>
 
 <section>
     <section>
-        <h1>Function implementation</h1>
+        <h1>Copy vs Reference</h1>
+    </section>
+
+    <section>
+        <p>What does this do? How is it different from previous examples?</p>
+        
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/order3/order3.cpp -%}
+    
+        </script></code></pre>
+    </section>
+    <section data-auto-animate>
+        <p>Parameters are copied, so they do not change. Does not work!</p>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+            /**
+             * Swaps real values 
+             * 
+             * a and b are the values to be swapped
+             * Returns nothing
+             */
+            void swap(float a, float b);	
+		</code></pre>
+    </section>
+    <section data-auto-animate>
+        <p>Parameters are referenced, so they must be variables. Works!</p>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+            /**
+             * Swaps the real values of the variables 
+             * 
+             * a and b are references to the variables
+             * Returns nothing
+             */
+            void swap(float& a, float& b);	
+		</code></pre>
+    </section>
+
+    <section>
+        <h1>Parameters by copy</h1>
+        <p>By default: when invoking, values of arguments are
+             copied to the corresponding parameters</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Parameters by copy</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+        float x = 5; float y = 3;
+        swap(x,y);
+        </code></pre>
+        <ul>
+            <li><code>a</code> gets the value of <code>x</code> (5)</li>
+            <li><code>b</code> gets the value of <code>y</code> (3)</li>
+        </ul>
+        <pre><code class="hljs cpp" data-trim>
+        void swap(float a, float b);
+        </code></pre>        
+    </section>
+
+    <section data-auto-animate>
+        <h2>Parameters by copy</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+        swap(5,3);
+        </code></pre>
+        <ul>
+            <li><code>a</code> gets the value of <code>x</code> (5)</li>
+            <li><code>b</code> gets the value of <code>y</code> (3)</li>
+        </ul>
+        <pre><code class="hljs cpp" data-trim>
+        void swap(float a, float b);
+        </code></pre>        
+    </section>
+
+    <section>
+        <h1>Parameters by reference</h1>
+        <p>When invoking, the argument variables are referenced (aliased).
+           Whatever happens to the parameters happens to the variables</p>
+        <ul class="fragment">
+            <li>They work as <strong>output</strong> parameters.</li>
+            <li>They are related to <strong>pointers</strong> (see later)</li>
+        </ul>
+    </section>
+    <section data-auto-animate>
+        <h2>Parameters by reference</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+        float x = 5; float y = 3;
+        swap(x,y);
+        </code></pre>
+        <ul>
+            <li><code>a</code> gets a reference to <code>x</code></li>
+            <li><code>b</code> gets a reference to <code>y</code></li>
+        </ul>
+        <pre><code class="hljs cpp" data-trim>
+        void swap(float& a, float& b);
+        </code></pre>        
+    </section>
+    
+    <section data-auto-animate>
+        <h2>Parameters by reference</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+        float x = 5; float y = 3;
+        swap(x,y);
+        //swap(5,3) does not compile
+        </code></pre>
+        <ul>
+            <li><code>a</code> gets a reference to <code>x</code></li>
+            <li><code>b</code> gets a reference to <code>y</code></li>
+        </ul>
+        <pre><code class="hljs cpp" data-trim>
+        void swap(float& a, float& b);
+        </code></pre>        
+    </section>
+    
+    <section data-auto-animate>
+        <h2>Parameters by reference</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+        float x = 5; float y = 3;
+        swap(x,y);
+        //swap(5,3) does not compile
+        </code></pre>
+        <ul>
+            <li>Whatever happens to <code>a</code> happens to <code>x</code></li>
+            <li>Whatever happens to <code>b</code> happens to <code>y</code></li>
+        </ul>
+        <pre><code class="hljs cpp" data-trim>
+        void swap(float& a, float& b);
+        </code></pre>        
+    </section>
+
+    <section>
+        <h2>Copy vs. reference: cost</h2>
+        <ul>
+            <li>Cost of copy proportional to data type's size</li>
+            <li>Cost of reference is constant (always 64 bits)</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Copy vs. reference: cost</h2>
+        <pre><code class="hljs cpp" data-trim>
+            struct BigType {
+                float v[1000000]; 
+            }; 
+        </code></pre>
+
+        This is too costly:
+        <pre><code class="hljs cpp" data-trim>
+            void function(BigType bt);
+        </code></pre>
+
+        This might modify it (and sometimes I don't want to):
+        <pre><code class="hljs cpp" data-trim>
+            void function(BigType& bt);
+        </code></pre>         
+    </section>
+
+    <section data-auto-animate>
+        <h2>Copy vs. reference: cost</h2>
+        <pre><code class="hljs cpp" data-trim>
+            struct BigType {
+                float v[1000000]; 
+            }; 
+        </code></pre>
+
+        <pre><code class="hljs cpp" data-trim>
+            void function(const BigType& bt);
+        </code></pre>
+
+        <p class="fragment">More about this later in this course</p>
+    </section>
+</section>
+
+
+
+<section>
+       <section data-auto-animate>
+        <h2>Function implementation</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+		    return_type function_name(type1 parameter1, type2 parameter2);	
+		</code></pre>
+    </section>
+    <section data-auto-animate>
+        <h2>Function implementation</h2>
+        <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+		    return_type function_name(type1 parameter1, type2 parameter2) {
+                //Code that implements the behavior of the function
+            } 
+		</code></pre>
+    </section>
+    <section>
+        <h2>Implementation example</h2>
+        <pre><code class="hljs cpp" data-trim><script type="text/template">
+            void repeat(int n, char c) {
+                for (int i = 0;i < n;++i)
+                    std::cout << c ;                
+            } 	
+		</script></code></pre>
     </section>
 </section>
 
