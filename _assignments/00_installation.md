@@ -10,7 +10,7 @@ For this course, you will need specific software installed in your machine:
 - **git**: a version control software, that will enable you to download and update source code from the course's repository, as well as share source code with your team and control how is it updated.
 - **Visual Studio code**: an integrated development environment, which is basically a source code editor with code highlighting features, that integrates compilation (with g++), build system (cmake) and version control (git) into the same user interface, to facilitate tasks.
 
-On Linux distributions, you can install it through the package managers/software repositories. 
+On Linux or MacOSX distributions, you can install it through the package managers/software repositories.
 
 # Software installation on Windows
 
@@ -48,5 +48,35 @@ To manually install `git`, download it from [here](https://github.com/git-for-wi
 Again, for Visual Studio Code, you need to [download the Windows installer](https://code.visualstudio.com/Download), specifically the `x64` one. You decide if you want to install it for all users in your machine (*System Installer*) or only for yourself (*User Installer*). Visual Studio Code includes a graphic user interface that can be expanded through extensions. 
 
 Visual Studio Code can be enhanced through extensions. Open Visual Studio Code, go to the "Extensions" tab and install the *C/C++ Extension Pack*.
+
+# Gathering class materials
+
+All the source code and class materials of this course, are stored on a GitHub repository. In order to download it all, you need to open the terminal or PowerShell console in the parent folder of where you want to download everything and type
+
+```
+git clone https://github.com/adolfomunoz/FoC.git
+```
+
+This will create a `FoC` folder with all materials. From that moment on you can enter the folder and update all materials (in the event that your teachers update them) by the command
+
+```
+git pull
+```
+
+Git is a version control system, and GitHub provides a server for such version control system. You might consider using it for the assignments within this or other courses.
+
+To double check you can compile, open a terminal / PowerShell console in the `FoC/src` folder and compile the `hello-world.cpp` source code file by executing
+
+```
+g++ hello-world.cpp -o hello-world
+```
+
+This will create an executable file (with `.exe` extension if you are in Windows). You can execute it as
+
+```
+./hello-world
+```
+
+Also, on Windows, you can double-click it, but it will open and close a terminal so fast that you will not see the execution. You can also experiment with compiling and executing other source files too.
 
 

@@ -1,0 +1,17 @@
+- date: 2024-09-04
+  time: 9:00
+  topic: "Introduction"
+  teacher: Adolfo
+- date: 2024-09-04
+  time: 10:00
+  topic: "Installation"
+  teacher: Adolfo
+- date: 2024-09-06
+  time: 10:00
+  topic: "Imperative programming"
+  teacher: Adolfo
+- date: 2024-09-06
+  time: 12:00
+  topic: "Subprograms"
+  teacher: Adolfo
+  

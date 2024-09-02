@@ -356,6 +356,16 @@ title: Subprograms
             } 	
 		</script></code></pre>
     </section>
+    <section>
+        <h2>Implementation example</h2>
+        <pre><code class="hljs cpp" data-trim><script type="text/template">
+            int gcf(int a, int b) {
+                if (b==0) return a;
+                else return gcf(b,a%b);
+            } 	
+		</script></code></pre>
+    </section>
+
 </section>
 
 <section>
