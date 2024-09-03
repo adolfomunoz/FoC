@@ -30,7 +30,7 @@ title: Subprograms
 
     <section>
         <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
-        {%- include src/triangle/triangle.cpp -%}
+        {%- include src/triangle/only-headers/triangle.cpp -%}
 
 		</script></code></pre>
     </section>
@@ -117,12 +117,12 @@ title: Subprograms
     <section data-auto-animate>
         <h2>Function specification</h2>
         <pre data-id="code-animation"><code class="hljs cpp" data-trim>
-            /**
-             * The function function_name does ...
-             * parameter1 represents ...
-             * parameter2 is ...
-             * returns the result ...
-             **/
+           /**
+            * The function function_name does ...
+            * parameter1 represents ...
+            * parameter2 is ...
+            * returns the result ...
+            **/
 		    return_type function_name(type1 parameter1, type2 parameter2);	
 		</code></pre>
     </section>
@@ -288,6 +288,66 @@ title: Subprograms
     </section>
 
     <section>
+        <h2>Output parameter vs. return value</h2>
+        <p>
+            The output of a function can be represented as a reference parameter or as
+            the return value of the function.
+        </p>
+    </section>
+
+    <section>
+        <table width="100%">
+            <tr>
+                <th width="50%">Output parameter</th>
+                <th width="50%">Return value</th>
+            </tr>
+            <tr>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim>
+                    void sqr(float x, float& x2);
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim>
+                    float sqr(float x);
+                    </code></pre>
+                </td>
+            </tr>
+            <tr class="fragment">
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim>
+                    float t; //t has a value
+                    float t2_1;
+                    sqr(t,t2_1);
+                    t2_1 += 1;
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim>
+                            float t; // t has a value
+                            float t2_1 = sqr(t) + 1;
+                    </code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Output parameter vs. return value</h2>
+        <p>
+            When possible, use return values instead of reference parameters.
+        </p>
+        <p class="fragment">
+            When is that not possible?
+        </p>
+        <ul class="fragment">
+            <li>When the function is given to you (you are not implementing it).</li>
+            <li>When you have several values to return</li>
+            <li>Low level efficiency/memory reasons (out of the scope of this course)</li>
+        </ul> 
+    </section>
+
+    <section>
         <h2>Copy vs. reference: cost</h2>
         <ul>
             <li>Cost of copy proportional to data type's size</li>
@@ -330,8 +390,6 @@ title: Subprograms
     </section>
 </section>
 
-
-
 <section>
        <section data-auto-animate>
         <h2>Function implementation</h2>
@@ -366,10 +424,124 @@ title: Subprograms
 		</script></code></pre>
     </section>
 
+    <section data-auto-animate>
+        <h2>Distributing code</h2>
+        <p>Where to locate the implementation code?</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Distributing code</h2>
+        <p>Where to locate the code?</p>
+        <ul>
+            <li>Specification</li>
+            <li>Implementation</li>
+            <li>Main program</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Distributing code</h2>
+        <h4>triangle.cpp</h4>
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/triangle/single-source/triangle.cpp -%}
+        </script></code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Distributing code</h2>
+        <table width="100%"><tr>
+            <td width="50%">
+                <h4>repeat.h</h4>
+                <pre><code style="font-size:75%;line-height:0.85" class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    {%- include src/triangle/only-headers/repeat.h -%}
+                </script></code></pre>
+            </td>
+            <td width="40%">
+                <h4>triangle.cpp</h4>
+                <pre><code style="font-size:75%;line-height:0.85" class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    {%- include src/triangle/only-headers/triangle.cpp -%}
+                </script></code></pre>
+            </td>        
+        </tr></table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Distributing code</h2>
+        <table width="100%"><tr>
+            <td width="50%">
+                <h4>repeat.h</h4>
+                <pre><code style="font-size:75%;line-height:0.85" class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    {%- include src/triangle/separate-implementation/repeat.h -%}
+                </script></code></pre>
+                <h4>repeat.cpp</h4>
+                <pre><code style="font-size:75%;line-height:0.85" class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    {%- include src/triangle/separate-implementation/repeat.cpp -%}
+                </script></code></pre>
+            </td>
+            <td width="40%">
+                <h4>triangle.cpp</h4>
+                <pre><code style="font-size:75%;line-height:0.85" class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    {%- include src/triangle/separate-implementation/triangle.cpp -%}
+                </script></code></pre>
+                <h4 class="fragment">Compile both <code>.cpp</code></h4>
+                <pre class="fragment"><code style="font-size:75%"">
+g++ repeat.cpp triangle.cpp -o triangle
+                </code></pre>        
+            </td>
+        </tr></table>
+    </section>
+    <section>
+        <h2>Compilation gets complex</h2>
+        <div>
+        <p>You need to compile all <code>.cpp</code> files</p>
+        <pre><code>
+            g++ repeat.cpp triangle.cpp -o triangle
+        </code></pre>
+        </div>
+        <div class="fragment">
+            <p>Better if done step by step (no need to recompile)</p>
+            <pre><code>
+                g++ repeat.cpp -c -o repeat.o
+                g++ repeat.o triangle.cpp -o triangle
+            </code></pre>
+            <p>More about this later on this course</p>
+            </div>
+    </section>
 </section>
 
 <section>
     <section>
         <h1>Function testing</h1>
+        <p>When implementing a function, do not integrate 
+            with the rest of the software yet.</p>
+        <h2>TEST IT</h2>
+    </section>
+
+    <section>
+        <h1>Function testing</h1>
+        <p><strong>How?</strong> Create another main program with the 
+            only purpose of testing it.</p>
+        <pre class="fragment"><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/gcf/test.cpp -%}
+        </script></code></pre>    
+    </section>
+
+    <section>
+        <h1>Function testing</h1>
+        <p>There are tools for facilitating the testing process</p>
+        <ul class="fragment">
+            <li><a href="https://google.github.io/googletest/">Google test</a></li>
+            <li><a href="https://github.com/catchorg/Catch2">Catch2</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Function testing</h1>
+        <p>When to write the test code?</p>
+        <ul>
+            <li>After production code (traditional methodology)</li>
+            <li>Before production code</li>
+            <li>Parallel to production code (<a href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a>)</li>
+        </ul>
     </section>
 </section>

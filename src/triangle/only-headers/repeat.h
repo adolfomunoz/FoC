@@ -1,7 +1,9 @@
 #include <iostream>
 
 /**
- * The function repeat outputs the same charater a number of times.
+ * The function repeat outputs
+ * the same charater a number 
+ * of times.
  * 
  * n represents the number of times
  * c is the character that is repeated
