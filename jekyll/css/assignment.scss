@@ -17,6 +17,11 @@ body {
   text-justify: inter-word;
 }
 
+svg {
+  display:block;
+  margin:auto;
+} 
+
 .header {
 	border: solid 1px $color-secondary-opposite;
 	border-radius: 20px;
