@@ -1,16 +1,214 @@
 ---
 title: Compilation
 ---
+<section>
+    <section>
+        <h1>#include</h1>
+        <p>Copy and paste a file (usually, a <code>.h</code> header) into a source code file.</p>
+    </section>
+
+    <section>
+        <h1>#include</h1>
+        <p>Looks for the <code>.h</code> file relative to this source file:</p>
+        <pre><code class="hljs cpp" data-trim>
+        #include "file.h"
+        </code></pre>        
+        <p>Looks for the <code>.h</code> file in the system's include paths</p>
+        <pre><code class="hljs cpp" data-trim><script type="text/template">
+        #include <file.h> 
+        </script></code></pre>
+    </section>
+
+    <section>
+        <table width="100%">
+            <tr>
+                <th>These files</th>
+                <th>become this</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>factorial.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    int factorial(int n) {
+                        if (n>1) 
+                            return n*
+                             factorial(n-1);    
+                        else 
+                            return 1;
+                    } 
+                    </code></pre>
+                    <strong>main.cc</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #include "factorial.h"
+                    int main() {
+                        ...
+                    }  
+                    </code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim>
+                    int factorial(int n) {
+                        if (n>1) 
+                            return n*
+                             factorial(n-1);    
+                        else 
+                            return 1;
+                    }
+                    int main() {
+                        ...
+                    }
+                    </code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>What happens now?</h2>
+        <table width="100%">
+            <tr>
+                <td>
+                    <strong>factorial.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    int factorial(int n) {
+                        if (n>1) 
+                            return n*
+                             factorial(n-1);    
+                        else 
+                            return 1;
+                    } 
+                    </code></pre>
+                    <strong>comb.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #include "factorial.h"
+                    int comb(int k, int k) {
+                        return factorial(n)/
+                          (factorial(k)* 
+                           factorial(n-k));
+                    }  
+                    </code></pre>                    
+                </td>
+                <td>
+                    <strong>main.cc</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #include "factorial.h"
+                    #include "comb.h"
+                    
+                    int main() {
+                        ...
+                    } 
+                    </code></pre>
+
+                    <p class="fragment">
+                       <code>factorial</code> appears twice. Compilation error. 
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </section>
+</section>
 
 <section>
     <section>
-        <h1>Compiling</h1>
+        <h1>Compile</h1>
+        <p>Convert source code into a machine-code or lower-level form in which the program can be executed</p>
+    </section>
+
+    <section>
+        <h2>Compilation flags</h1>
+        <ul>
+            <li><code>-O0</code> - No optimization, faster compile time, better for debugging</li>
+            <li><code>-O2</code> - Default optimization</li>
+            <li><code>-O3</code> - Higher optimization, slower compile time, better for production</li>
+            <li><code>-g</code>  - Include debugging symbols </li>
+            <li><code>-s</code>  - Remove all debugging information</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Compilation flags</h2>
+
+        <p>For debugging:</p>
+        <pre><code class="hljs bash" data-trim>
+            g++ -O0 -g file.cpp -o executable
+        </code></pre>        
+        <p>For production (release):</p>
+        <pre><code class="hljs bash" data-trim>
+            g++ -O3 -s file.cpp -o executable
+        </code></pre>        
+    </section>
+
+    <section>
+        <h2>Compilation flags</h1>
+        <ul>
+            <li><code>-Wall</code> - Turns on many warnings</li>
+            <li><code>-Wextra</code> - Enables extra warnings</li>
+            <li><code>-Wpedantic</code> - Even more warnings</li>
+            <li><code>-Werror</code>  - Transforms warnings into errors</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Compilation flags</h2>
+        <p><strong>Use all warning flags!</strong> It is better to detect 
+            errors during compilation than during execution.</p>
+            <p>For debugging:</p>
+            <pre><code class="hljs bash" data-trim>
+                g++ -Wall -Wextra -Wpedantic -Werror -O0 -g file.cpp -o executable
+            </code></pre>        
+            <p>For production (release):</p>
+            <pre><code class="hljs bash" data-trim>
+                g++ -Wall -Wextra -Wpedantic -Werror -O3 -s file.cpp -o executable
+            </code></pre>        
+
+        </section>
+
+    <section>
+        <h2>Single file</h1>
         {%- include img/compilation-single.svg -%}
-        <p class="fragment">Not true when having multiple files</p>
+
+        <pre><code class="hljs bash" data-trim>
+            g++ $FLAGS file.cpp -o executable
+        </code></pre>
     </section>
     <section>
-        Manual compilation of multiple file (example)
+        <h2>Multiple files</h1>
+        {%- include img/compilation-multiple.svg -%}
+
+        <pre><code class="hljs bash" data-trim>
+            g++ $FLAGS file1.cpp file2.cpp ... -o executable
+        </code></pre>
     </section>
+
+    <section data-auto-animate>
+        <h2>Multiple files on demand</h1>
+        {%- include img/compilation-link-multiple.svg -%}
+
+        <pre><code class="hljs bash" data-trim>
+            g++ $FLAGS -c file1.cpp 
+            g++ $FLAGS -c file2.cpp
+            ...
+            g++ $FLAGS file1.o file2.o ... -o executable
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Multiple files on demand</h1>
+
+        <pre><code class="hljs bash" data-trim>
+            g++ $FLAGS -c file1.cpp 
+            g++ $FLAGS -c file2.cpp
+            ...
+            g++ $FLAGS file1.o file2.o ... -o executable
+        </code></pre>
+
+        <ul>
+            <li>Manual control of compilation</li>
+            <li>Requires knowledge about <code>.h and .cpp</code> edition</li>
+            <li>Automating this: enter <strong><code>make</code></strong> </li>
+        </ul>
+    </section>
+
 </section>
 <section>
     <section>
