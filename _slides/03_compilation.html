@@ -63,13 +63,13 @@ title: Compilation
         </table>
     </section>
 
-    <section>
+    <section data-auto-animate>
         <h2>What happens now?</h2>
         <table width="100%">
             <tr>
                 <td>
                     <strong>factorial.h</strong>
-                    <pre><code class="hljs cpp" data-trim>
+                    <pre data-id="code-animation"><code class="hljs cpp" data-trim>
                     int factorial(int n) {
                         if (n>1) 
                             return n*
@@ -102,6 +102,103 @@ title: Compilation
                     <p class="fragment">
                        <code>factorial</code> appears twice. Compilation error. 
                     </p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <table width="100%">
+            <tr>
+                <td>
+                    <strong>factorial.h</strong>
+                    <pre data-id="code-animation"><code class="hljs cpp" data-trim>
+                    #ifndef _FACTORIAL_H_
+                    #define _FACTORIAL_H_   
+                    int factorial(int n) {
+                        if (n>1) 
+                            return n*
+                             factorial(n-1);    
+                        else 
+                            return 1;
+                    }
+                    #endif  
+                    </code></pre>
+                    <strong>comb.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #include "factorial.h"
+                    int comb(int k, int k) {
+                        return factorial(n)/
+                          (factorial(k)* 
+                           factorial(n-k));
+                    }  
+                    </code></pre>                    
+                </td>
+                <td>
+                    <strong>main.cc</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #include "factorial.h"
+                    #include "comb.h"
+                    
+                    int main() {
+                        ...
+                    } 
+                    </code></pre>
+
+                    <p>
+                       Prevent double inclusion 
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Include guards</h2>
+        <p>In C++, all header files should be protected by guards.</p>
+
+        <p class="fragment">It is too easy to mess it up</p>
+
+        <table width="100%">
+            <tr>
+                <td>
+                    <strong>factorial.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #ifndef _FACTORIAL_H_
+                    #define _FACTORIAL_H_   
+                    int factorial(int n);
+                    #endif
+                </td>
+                <td>
+                    <strong>comb.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #ifndef _COMB_H_
+                    #define _COMB_H_   
+                    int comb(int n, int k);
+                    #endif
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Pragma guards</h2>
+        <p>In C++, all header files should be protected by guards.</p>
+
+ 
+        <table width="100%">
+            <tr>
+                <td>
+                    <strong>factorial.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #pragma once   
+                    int factorial(int n);
+                </td>
+                <td>
+                    <strong>comb.h</strong>
+                    <pre><code class="hljs cpp" data-trim>
+                    #pragma once   
+                    int comb(int n, int k);
                 </td>
             </tr>
         </table>
@@ -213,11 +310,26 @@ title: Compilation
 <section>
     <section>
         <h1>Make</h1>
+        <p><strong><code>make</code></strong> is a build system: it drives the compiler 
+        and other tools to build your code.</p>
+    </section>
+
+    <section>
+        <h1>Make</h1>
+        <p>It is useful when builds require multiple files, as it keeps track of their
+            updates</p>
+            {%- include img/compilation-link-multiple.svg -%}
+    </section>
+
+    <section>
+        <h2>Makefile</h2>
     </section>
 </section>
 <section>
     <section>
         <h1>CMake</h1>
+        <p><strong><code>cmake</code></strong> is a build system generator: it can 
+            produce Ninja build files, Visual Studio projects, Makefiles...</p>
     </section>
 </section>
 <section>

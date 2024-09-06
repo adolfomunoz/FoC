@@ -423,7 +423,16 @@ title: Subprograms
             } 	
 		</script></code></pre>
     </section>
-
+    <section>
+        <h2>Implementation example</h2>
+        <pre><code class="hljs cpp" data-trim><script type="text/template">
+            void swap(float& a, float& b) {
+                float aux = a;
+                a = b;
+                b = aux;
+            } 	
+		</script></code></pre>
+    </section>
     <section data-auto-animate>
         <h2>Distributing code</h2>
         <p>Where to locate the implementation code?</p>

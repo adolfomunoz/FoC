@@ -14,7 +14,7 @@ Assume that you don't have available the implementation of the inverse sine, so 
 
 $$ \sin^{-1}(x) = \sum_{i=0}^{\infty}\frac{(2n)!}{4^n (n!)^2 (2n+1)}x^{2n+1} .$$           
 
-Assume as well that you don't already have a function for calculating neither the factorial nor the power. We consider a sufficient approximation of the inver cosine the use of the ten first terms of the series expansion. 
+Assume as well that you don't already have a function for calculating neither the factorial nor the power. We consider a sufficient approximation of the inverse cosine the use of the ten first terms of the series expansion. 
 
 
 ## Submission 
