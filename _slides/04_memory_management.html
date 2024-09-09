@@ -8,23 +8,22 @@ title: Memory Management
     - How variables are stored in memory
     - The Role of the Operating System
     - Introduction to Virtual Memory
-    ---
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
     ## Goals
     - Understand how memory stores variables
     - Distinguish between data, heap, stack sections
     - Know the principles on a computer manages data in programs
     </textarea>
   </section>
-
-  <section>
-    <h2>Parts of a Program in Memory</h2>
-    <img src="{{ site.baseurl }}/img/memparts.png" height="300">
-  </section>
-
+<!--
   <section>
   <h2>Main Diagram</h2>
   <img src="{{ site.baseurl }}/img/elements_of_computing_system.jpg">
   </section>
+-->
   
   <section data-markdown>
     <textarea data-template>
@@ -71,10 +70,26 @@ title: Memory Management
     <h2>Quiz: What is a variable? </h2>
     <p class="fragment">A pair of a <b>name</b> with its semantics and a corresponding <b>location for storage</b>, normally memory</p>
   </section>
-  <section data-markdown>
-    <textarea data-template>
-    # What is a pointer?
-
-    </textarea>
+  <section> 
+    <h2>Quiz: What is a pointer? </h2>
+    <p class="fragment">A variable that stores a memory address</p>
   </section>
-</section>
+  <section>
+    <h2>Parts of a Program in Memory</h2>
+    <img src="{{ site.baseurl }}/img/memparts.png" height="300">
+  </section>
+  <section>
+    <h2>Text and Operating System parts</h2>
+    <ul>
+    <li><b>Operating System</b>: The operating system restricts some memory area for itself</li>
+    <li><b>Text</b>: Portion of memory storing the code of our program; e.g., <q>main</q> function</li>
+    </ul> 
+  </section>
+  <section>
+    <h2>Data, Heap, and Stack</h2>
+    <ul>
+    <li><b>Data</b>: Area storing global variables with lifetime equal to the program</li>
+    <li><b>Heap</b>: Area storing variables dynamically allocated, unknown lifetime and not function limited</li>
+    <li><b>Stack</b>: Area storing variables created within the scope of a function</li>
+    </ul> 
+  </section>
