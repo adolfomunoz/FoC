@@ -2,6 +2,7 @@
 title: Memory Management
 ---
 <section>
+<!--
   <section data-markdown>
     <textarea data-template>
     ## Index
@@ -15,25 +16,25 @@ title: Memory Management
     ## Goals
     - Understand how memory stores variables
     - Distinguish between data, heap, stack sections
+    
     - Know the principles on a computer manages data in programs
     </textarea>
   </section>
-<!--
   <section>
   <h2>Main Diagram</h2>
   <img src="{{ site.baseurl }}/img/elements_of_computing_system.jpg">
   </section>
 -->
-  
-  <section data-markdown>
-    <textarea data-template>
-    # Memory Management
-    - Memory stores instructions, *programs*, and data
-    - The **Operating System** manages memory 
-    </textarea>
+
+  <section>
+  <h2> Memory Management</h2>
+    <ul>
+    <li>Memory stores <b>programs</b>; i.e., instructions and data</li>
+    <li>The Operating System and the C++ runtime manages memory</li>
+    </ul> 
   </section>
 
-
+<!--
   <section data-markdown>
     <textarea data-template>
     # The Role of the Operating System
@@ -66,6 +67,7 @@ title: Memory Management
 
     </textarea>
   </section>
+-->
   <section> 
     <h2>Quiz: What is a variable? </h2>
     <p class="fragment">A pair of a <b>name</b> with its semantics and a corresponding <b>location for storage</b>, normally memory</p>
@@ -107,6 +109,35 @@ title: Memory Management
 	   </div>
            <img src="{{ site.baseurl }}/img/stack_heap/demo_legend.png" height="50">
 	   <em style="font-size:25%">source: https://courses.grainger.illinois.edu/cs225/fa2022/resources/stack-heap/</em>
-  </section>	  
+  </section>
+ <section>
+   <h2>Quiz: Pointers' storage</h2>
+   <p class="fragment">Can the heap, stack and data sections store pointers?</p>
  </section>
+ <section>
+ <h2>Quiz: What is the output of this code?</h2>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/swap.cpp -%}
+ </script></code></pre> 
+ </section>
+ <section>
+ <h2>C++ parameters default pass</h2>
+ <p>In C++, <em>pass-by-copy</em> is the default policy
+  </section>
+ <section>
+ <h2>Quiz: What is the output of this code?</h2>
+ <h3>Pointers to the rescue</h3>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/swap_ptr.cpp -%}
+ </script></code></pre> 
+  </section>
+ 
+ <section>
+ <h2>Pointers can be dangerous</h2>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template" class="stretch">
+ {%- include src/swap_nullptr.cpp -%}
+ </script></code></pre> 
+  </section>
 
+
+</section>
