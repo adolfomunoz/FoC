@@ -321,19 +321,217 @@ title: Compilation
             {%- include img/compilation-link-multiple.svg -%}
     </section>
 
-    <section>
-        <h2>Makefile</h2>
+    <section data-auto-animate>
+        <h2>Make</h2>
+        <p>Configurable through a <code>Makefile</code>. Based on a set of rules that are
+        executed if files have changed.</p>
+
+        <pre data-id="code-animation"><code class="hljs bash" data-trim>
+        file1.o: file1.cpp file1.h
+            g++ -c file1.cpp
+        file2.o: file2.cpp file2.h
+            g++ -c file2.cpp
+        file3.o: file3.cpp file3.h
+            g++ -c file3.cpp
+            
+        executable: file1.o file2.o file3.o
+            g++ file1.o file2.o file3.o -o executable
+        </code></pre>
     </section>
+
+    <section data-auto-animate>
+        <h2>Make</h2>
+        <p>Configurable through a <code>Makefile</code>. Based on a set of rules that are
+        executed if files have changed.</p>
+
+        <pre data-id="code-animation"><code class="hljs bash" data-trim>
+        CXX = g++
+        CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -O0 -g
+
+        file1.o: file1.cpp file1.h
+            $(CXX) $(CXXFLAGS) -c file1.cpp
+        file2.o: file2.cpp file2.h
+            $(CXX) $(CXXFLAGS) -c file2.cpp
+        file3.o: file3.cpp file3.h
+            $(CXX) $(CXXFLAGS) -c file3.cpp
+
+        executable: file1.o file2.o file3.o
+            $(CXX) $(CXXFLAGS) file1.o file2.o file3.o -o executable
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Make</h2>
+        <p>Configurable through a <code>Makefile</code>. Based on a set of rules that are
+        executed if files have changed.</p>
+
+        <pre data-id="code-animation"><code class="hljs bash" data-trim>
+        objects = file1.o file2.o file3.o
+        CXX = g++
+        CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -O0 -g
+
+        $(objects): %.o: %.cpp %.h
+            $(CXX) $(CXXFLAGS) -c $^
+
+        executable: $(objects)
+            $(CXX) $(CXXFLAGS) $(objects) -o executable
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Make</h2>
+        <p>Configurable through a <code>Makefile</code>. Based on a set of rules that are
+        executed if files have changed.</p>
+
+        <ul>
+            <li>Incompatible with other build systems or IDEs</li>
+            <li>Heavily dependant on shell and operating system</li>
+            <li>No cross plattform</li>
+        </ul>
+    </section>
+</section>
 </section>
 <section>
     <section>
         <h1>CMake</h1>
         <p><strong><code>cmake</code></strong> is a build system generator: it can 
             produce Ninja build files, Visual Studio projects, Makefiles...</p>
+
+        <p>It is based on a configuration file named <strong><code>CMakeLists.txt</code></strong></p>
+    </section>
+
+    <section>
+        <h2>CMake</h2>
+        <strong><code>CMakeLists.txt</code></strong> are cross-plattform. Then you can
+        generate a particular build system for your particular plattform.
+        
+        <strong><code>CMakeListstxt</code> should be in the root folder of the project</strong>
+    </section>
+
+    <section data-auto-animate>
+        <h2><code>CMakeLists.txt</code></h2>
+        <pre data-id="code-animation"><code class="hljs cmake" data-trim>
+        cmake_minimum_required(VERSION 3.15...3.30)
+        project(
+            MyCMakeProject
+            VERSION 1.0
+            LANGUAGE CXX
+        )
+
+        add_executable(executable file1.cpp file2.cpp file3.cpp)
+        #You can have as many executables as possible (maybe for testing)  
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2><code>CMakeLists.txt</code></h2>
+        <pre data-id="code-animation"><code class="hljs cmake" data-trim>
+        cmake_minimum_required(VERSION 3.15...3.30)
+        project(
+            MyCMakeProject
+            VERSION 1.0
+            LANGUAGE CXX
+        )
+
+        #For all executables in project 
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
+
+        add_executable(executable file1.cpp file2.cpp file3.cpp)
+        #You can have as many executables as possible (maybe for testing)  
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2><code>CMakeLists.txt</code></h2>
+        <pre data-id="code-animation"><code class="hljs cmake" data-trim>
+        cmake_minimum_required(VERSION 3.15...3.30)
+        project(
+            MyCMakeProject
+            VERSION 1.0
+            LANGUAGE CXX
+        )
+
+        add_executable(executable file1.cpp file2.cpp file3.cpp)
+        #You can have as many executables as possible (maybe for testing)
+
+        target_compile_options(executable "-Wall -Wextra -Wpedantic -Werror") 
+        #For a particular executable  
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>CMake generation</h2>
+
+        <p>For make...</p>
+        <pre><code class="hljs bash">
+        > mkdir build
+        > cd build
+        > cmake .. -G "Unix Makefiles"
+        > make    
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>CMake generation</h2>
+
+        For ninja...
+        <pre><code class="hljs bash">
+        > mkdir build
+        > cd build
+        > cmake .. -G Ninja
+        > ninja    
+        </code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>CMake generation</h2>
+        
+        <p>Internally inside an IDE</p>
     </section>
 </section>
 <section>
     <section>
-        <h1>IDEs and vscode</h1>
+        <h1>IDE</h1>
+
+        <p>An integrated development environment (IDE) enables programmers to consolidate the different aspects 
+            of writing a computer program.</p>
+
+        <p>IDEs increase programmer productivity by combining common activities of 
+            writing software into a single application: editing source code, 
+            building executables, and debugging.
+        </p>
     </section>
+
+    <section>
+        <h2>Visual Studio Code</h2>
+
+        <ul>
+            <li>Popular cross-plattform IDE</li>
+            <li>Configurable through extensions</li>
+            <li>Integrates with CMake, git...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Studio Code</h2>
+
+        <p>Install extensions</p>
+        <ul>
+            <li>C/C++ Extension Pack</li>
+            <li>CMake</li>
+            <li>CMake tools</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual Studio Code</h2>
+
+        <p>For each project:</p>
+        <ul>
+            <li>Create a <code>CMakeLists.txt</code> on its root folder</li>
+            <li>In Visual Studio Code, open that folder</li>
+            <li>Let Visual Studio Code find the file and create a compilation system</li>
+        </ul>
+    </section>
+
 </section>
