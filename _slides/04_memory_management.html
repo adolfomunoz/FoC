@@ -179,7 +179,19 @@ title: Memory Management
      </ul>
   </section>
   <section>
-  <h2><pre>new</pre> and <pre>delete</pre></h2>
+  <h2>Dynamic Memory Allocation</pre></h2>
+     <ul>
+      <li>Allocation:
+       <pre><code>int * ptr_int = new int;</code></pre>
+       <pre><code>int * array_int = new int[4];</code></pre></li>
+      <li>Deallocation:
+       <pre><code>delete ptr_int;</code></pre>
+       <pre><code>delete [] array_int;</code></pre></li>
+      </ul> 
   </section>
-  
+
+  <section>
+  <h2>Pointer Arithmetic</h2>
+       <pre><code>a[i] == *(a + i * sizeof(a[0]))</code></pre>
+  </section>
 </section>
