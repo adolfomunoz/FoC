@@ -63,7 +63,7 @@ Please run the original program before writing the fix.
 
 Please read the `variables.cpp` program and briefly describe what the program does, specially
 in terms of pointer arithmetic.
-    
+ 
 ```.cpp
 {% include src/assigment_04_classes_materials/variables.cpp %}
 ```
@@ -74,6 +74,37 @@ gives any error?
 And, finally, could you remove the pointers and use a
 [range-for](https://en.cppreference.com/w/cpp/language/range-for) loop. The final
 file should be named `variables_wout_pointers.cpp`.
+
+# Pointer arithmetic
+
+Please write a program that finds the maximum and the minimum elements in a
+four by four float 2D matrix. The first version, `max_min_global_2d_matrix.cpp`
+of the program should store the matrix in the data section, and should access
+the elements with a pointer to float. The second version,
+`max_min_heap_2d_matrix.cpp`,  should read two integer numbers from the command
+line and create a matrix in the heap with those dimensions, always less than 5
+rows and columns. To fill the matrix, use the [C++ standard library
+pseudo-random number
+generators](https://en.cppreference.com/w/cpp/numeric/random) ; e.g.:
+
+```
+#include <random>
+
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_real_distribution<float> dis {0.0f, 1.0f};
+
+auto pseudo_random_float_value = dis(gen);
+```
+
+The output of both programs should be:
+
+```
+The maximum and minimun values of the matrix are: XXX and YYY 
+```
+
+_Notes: Could you ask yourself how the memory stores the matrix? Do you need to 
+delete the matrix in any case?_
 
 # Submission
 
