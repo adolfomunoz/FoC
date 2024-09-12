@@ -139,12 +139,37 @@ title: Memory Management
  </script></code></pre> 
   </section>
   <section>
-  <h2><pre>nullptr</pre>, the pointer literal</h2>
-
+  <h2>nullptr, the pointer literal</h2>
+  <ul>
+	  <li><code>nullptr</code> represents the null pointer constant</li>
+	  <li>Its type is <code>std::nullptr_t</code> can be converted to any pointer type</li>
+	  <li>Never use <code>NULL</code> or <code>0</code> for pointers
+  </ul>
   </section>
+
+  <section>
+	  <h2>NULL bad use example</h2>
+	  <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		  {%- include src/NULL_bad_example.cpp -%}
+  </script></code></pre> 
+	   <em style="font-size:25%">source: https://learn.microsoft.com/es-es/cpp/cpp/nullptr?view=msvc-170</em>
+  </section>
+  
   <section>
   <h2>References</h2>
+     <ul>
+	     <li>An alias to an <b>already-existing</b> object or function</li>
+	     <li>Access to references are the same to the object they point to</li>
+     </ul>
   </section>
+
+   <section>
+     <h2>Reference example</h2>
+     <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		  {%- include src/reference.cpp -%}
+     </script></code></pre> 
+  </section>
+
   <section>
   <h2>Pointers and Arrays</h2>
     <h4>Arrays</h4>
