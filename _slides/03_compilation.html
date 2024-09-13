@@ -415,7 +415,7 @@ title: Compilation
         project(
             MyCMakeProject
             VERSION 1.0
-            LANGUAGE CXX
+            LANGUAGES CXX
         )
 
         add_executable(executable file1.cpp file2.cpp file3.cpp)
@@ -430,7 +430,7 @@ title: Compilation
         project(
             MyCMakeProject
             VERSION 1.0
-            LANGUAGE CXX
+            LANGUAGES CXX
         )
 
         #For all executables in project 
@@ -448,7 +448,7 @@ title: Compilation
         project(
             MyCMakeProject
             VERSION 1.0
-            LANGUAGE CXX
+            LANGUAGES CXX
         )
 
         add_executable(executable file1.cpp file2.cpp file3.cpp)
@@ -532,6 +532,14 @@ title: Compilation
             <li>In Visual Studio Code, open that folder</li>
             <li>Let Visual Studio Code find the file and create a compilation system</li>
         </ul>
+    </section>
+
+    <section>
+        <h1>Example</h1>
+        
+        <p>You can have a look at simple CMakeList.txt examples that 
+            work in Visual Studio Code on <a href="https://github.com/adolfomunoz/FoC/tree/main/src/triangle/separate-implementation">the course's Github repository</a>
+        </p>
     </section>
 
 </section>
