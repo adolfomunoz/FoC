@@ -138,6 +138,60 @@ title: Memory Management
  {%- include src/swap_nullptr.cpp -%}
  </script></code></pre> 
   </section>
+  <section>
+  <h2>nullptr, the pointer literal</h2>
+  <ul>
+	  <li><code>nullptr</code> represents the null pointer constant</li>
+	  <li>Its type is <code>std::nullptr_t</code> can be converted to any pointer type</li>
+	  <li>Never use <code>NULL</code> or <code>0</code> for pointers
+  </ul>
+  </section>
 
+  <section>
+	  <h2>NULL bad use example</h2>
+	  <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		  {%- include src/NULL_bad_example.cpp -%}
+  </script></code></pre> 
+	   <em style="font-size:25%">source: https://learn.microsoft.com/es-es/cpp/cpp/nullptr?view=msvc-170</em>
+  </section>
+  
+  <section>
+  <h2>References</h2>
+     <ul>
+	     <li>An alias to an <b>already-existing</b> object or function</li>
+	     <li>Access to references are the same to the object they point to</li>
+     </ul>
+  </section>
 
+   <section>
+     <h2>Reference example</h2>
+     <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+		  {%- include src/reference.cpp -%}
+     </script></code></pre> 
+  </section>
+
+  <section>
+  <h2>Pointers and Arrays</h2>
+    <h4>Arrays</h4>
+     <ul>
+     <li>Definition: <code>int array[3]={0, 1, 2};</code></li>
+     <li><em>Normally</em>, they will be allocated in the stack</li>
+     </ul>
+  </section>
+  <section>
+  <h2>Dynamic Memory Allocation</pre></h2>
+     <ul>
+      <li>Allocation:
+       <pre><code>int * ptr_int = new int;</code></pre>
+       <pre><code>int * array_int = new int[4];</code></pre></li>
+      <li>Deallocation:
+       <pre><code>delete ptr_int;</code></pre>
+       <pre><code>delete [] array_int;</code></pre></li>
+      </ul> 
+  </section>
+
+  <section>
+  <h2>Pointer Arithmetic</h2>
+       <pre><code>a[i] == *(a + i * sizeof(a[0]))</code></pre>
+  </section>
 </section>
