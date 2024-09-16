@@ -1,0 +1,44 @@
+---
+title: Smart Pointers (Work In Progress)
+---
+<section>
+  <section>
+  <h2>Dynamic Memory Issues</h2>
+    <ul>
+      <li>Each <code>new</code> always requires a matching <code>delete</code></li>
+    <li>Possible Issues:
+      <ol>
+        <li>Access an unitilized pointer</li>
+        <li><b>Memory leaks</b>: unreachable objects in the heap</li>
+        <li><b>Dangling pointers</b>: pointers to already released objects</li>
+        <li><b>Multiple deletion</b>: calling delete several times for the same object</li>
+      </ol>
+    </li>
+    </ul> 
+  </section>
+
+  <section>
+    <h2>Possible solution</h2>
+    <ul>
+      <li>How we can automatically guarantee the release of the object?</li>
+      <li>Think in RAII (resource adquisition is initializationi)</li>
+  </section>
+  
+  <section>
+  <h2>Index</h2>
+    <ul>
+    <li>Memory stores <b>programs</b>; i.e., instructions and data</li>
+    <li>The Operating System and the C++ runtime manages memory</li>
+    </ul> 
+  </section>
+  
+  <section>
+  <h2>Learning Outcomes</h2>
+    <ul>
+    <li>Memory stores <b>programs</b>; i.e., instructions and data</li>
+    <li>The Operating System and the C++ runtime manages memory</li>
+    </ul> 
+  </section>
+
+
+</section>
