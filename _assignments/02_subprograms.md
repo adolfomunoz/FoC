@@ -35,7 +35,7 @@ cmake_minimum_required(VERSION 3.15...3.30)
 project(
     Triangles
     VERSION 1.0
-    LANGUAGE CXX
+    LANGUAGES CXX
 )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
 add_executable(triangles functions.cpp triangles.cpp)
