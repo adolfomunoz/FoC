@@ -21,24 +21,69 @@ title: Smart Pointers (Work In Progress)
     <h2>Possible solution</h2>
     <ul>
       <li>How we can automatically guarantee the release of the object?</li>
-      <li>Think in RAII (resource adquisition is initializationi)</li>
+      <li>Think in objects in the stack and RAII (resource adquisition is initialization)</li>
+  </section>
+
+  <section>
+    <h2><em>detour</em>: C++ scopes</h2>
+    <ul>
+      <li><b><a href="https://en.cppreference.com/w/cpp/language/scope">Scope</a></b>: context where an element (variable, object, class, function, ...) is visible</li>
+    </ul>
+    <img src="{{ site.baseurl }}/img/scope.png" height="256">
+    <em style="font-size:15%">source: <a href="https://www.oreilly.com/library/view/practical-c-programming/0596004192/ch09.html">https://www.oreilly.com/library/view/practical-c-programming/0596004192/ch09.html</a></em>
+  </section>
+
+  <section>
+    <h2>Quiz: What are the scopes within this program</h2>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+      {%- include src/scopes.cpp -%}
+    </script></code></pre> 
+  </section>
+
+  <section>
+    <h2>Smart Pointers</h2>
+    <ul>
+      <li>Ensure that objects are released after the last use; e.g., going out of scope</li>
+      <li>Automatically call <code>delete</code></li>
+      <li><p><code>std::unique_ptr</code> and <code>std::shared_ptr</code>
+        templated classes release the object in their destructors</p></li>
+      <li>Enable same access as regular pointers: <code>*</code> and <code>-&gt;</code>
+      </ul>
+  </section>
+
+  <section>
+    <h2>Rationale example</h2>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+      {%- include src/toyptr.hpp -%}
+    </script></code></pre> 
+    <em style="font-size:15%">source: <a href="https://courses.cs.washington.edu/courses/cse333/22wi/lectures/16/16-smartptrs_22wi_ink.pdf">https://courses.cs.washington.edu/courses/cse333/22wi/lectures/16/16-smartptrs_22wi_ink.pdf</a></em>
+  </section>
+
+  <section>
+    <h2>Use of <code>ToyPtr</code></h2>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+      {%- include src/toyptr.cpp -%}
+    </script></code></pre> 
+    <img src="{{ site.baseurl }}/img/smart_ptr.png" height="256">
+    <p>How many times is called <code>delete</code>?</p>
+  </section>
+
+  <section>
+    <h2><code>std::unique_ptr&lt;T&gt;</code></h2>
+      <ul>
+        <li>Solution for single ownership of an object through a pointer</li>
+        <li>Dealocates when going out of scope</li>
+        <li>Cannot be copied and can be moved</li>
+      </ul>
   </section>
   
   <section>
-  <h2>Index</h2>
+    <h2><code>std::shared_ptr&lt;T&gt;</code></h2>
     <ul>
-    <li>Memory stores <b>programs</b>; i.e., instructions and data</li>
-    <li>The Operating System and the C++ runtime manages memory</li>
-    </ul> 
+      <li>Solution for multiple pointers to the same object</li>
+      <li>Internally counts the number of refereces to the object</li>
+      <li>Allocation increases the counter, deallocation reduces the counter. When
+        reaching 0, the object is deallocated</li>
+    </ul>
   </section>
-  
-  <section>
-  <h2>Learning Outcomes</h2>
-    <ul>
-    <li>Memory stores <b>programs</b>; i.e., instructions and data</li>
-    <li>The Operating System and the C++ runtime manages memory</li>
-    </ul> 
-  </section>
-
-
 </section>
