@@ -5,15 +5,34 @@ title: Smart Pointers
 # Prerequisites
 
 In this laboratory, you are going to write several small programs covering the
-basic aspects of pointers. Please use the same compiler and setup that in
-previous laboratories. Please do not forget to use these `CXXFLAGS` when
-compiling with `g++`: `-Wall -Wextra -pedantic -Werror`. These flags would help
-you to write more solid code. Ideally, you should use `cmake` as your building
-tool.-
+basic aspects of [smart pointers](https://en.cppreference.com/w/cpp/memory).
+Please use the same compiler and setup that in previous laboratories. Please do
+not forget to use these `CXXFLAGS` when compiling with `g++`: `-Wall -Wextra
+-pedantic -Werror`. These flags would help you to write more solid code.
+Ideally, you should use `cmake` as your building tool. Also, you could consider
+adding the following lines to your `CMakeLists.txt` to ensure you are working on
+C++17.
+
+```
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+```
 
 Do not hesitate to contact the faculty in case of doubts about the exercises.
 
-# Identifying pointers
+# Identify memory leaks and remove them
+
+Identify all the memory leaks in the file `to_fix_memory_leaks.cpp` and
+avoid them using smart pointers. This example only requires `std::unique_ptr`.
+
+Please understand and run the original program before starting your solution.
+
+```.cpp
+{% include src/assigment_09_classes_materials/to_fix_memory_leaks.cpp %}
+```
+
+# Using shared pointers
+
 
 
 # Modifying variables with pointers and references
