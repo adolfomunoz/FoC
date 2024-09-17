@@ -28,7 +28,7 @@ point* copy_point(const point& p)
 int main()
 {
   const size_t n = 4;
-  point points[n]={{0, 0}, {1, 1}, {0, 0}, {1, 1}};
+  point points[n]={ {0, 0}, {1, 1}, {0, 0}, {1, 1} };
 
   // save points whose coordinates are not (0, 0)
   point_node* list = nullptr;

@@ -1,5 +1,5 @@
 ---
-title: Smart Pointers (Work In Progress)
+title: Smart Pointers
 ---
 <section>
   <section>
@@ -74,6 +74,7 @@ title: Smart Pointers (Work In Progress)
         <li>Solution for single ownership of an object through a pointer</li>
         <li>Dealocates when going out of scope</li>
         <li>Cannot be copied and can be moved</li>
+        <li>Use <a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique">std::make_unique</a> to create them</li>
       </ul>
   </section>
   
@@ -84,6 +85,15 @@ title: Smart Pointers (Work In Progress)
       <li>Internally counts the number of refereces to the object</li>
       <li>Allocation increases the counter, deallocation reduces the counter. When
         reaching 0, the object is deallocated</li>
+      <li>Use <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared">std::make_shared</a> to create them</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>To learn more</h2>
+    <ul>
+      <li>R.20 to R.33 from <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-owner">Cpp Core Guidelines</li>
+      <li><a href="https://cppbyexample.com/what_are_smart_pointers.html">What are Smart Pointers</a>
     </ul>
   </section>
 </section>
