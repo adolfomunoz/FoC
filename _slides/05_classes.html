@@ -42,6 +42,101 @@ title: Data structures and classes
 			<li>In general, <strong>avoid functional dependencies</strong> between members</li>
 		</ul>
 	</section>
+	<section>
+		<h2><code>struct</code> specification</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers">
+			struct Car {
+				string brand;
+				string model;
+				int year;
+			};
+		</code></pre>		
+	</section>
+
+	<section>
+		<h2><code>struct</code> usage</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+			int main() {
+				Car my_car;
+				my_car.brand = "BMW";
+				my_car.model = "X5";
+				my_car.year = 1999;
+
+				cout << my_car.brand << " " << 
+					my_car.model << " " << 
+					my_car.year << "\n";
+			}
+		</code></pre>		
+	</section>
+
+	<section>
+		<h2><code>struct</code> usage (pointers)</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
+			int main() {
+				Car* my_car = new Car;
+				my_car->brand = "BMW"; //Similar to (*my_car).brand;
+				my_car->model = "X5";
+				my_car->year = 1999;
+
+				cout << my_car->brand << " " << 
+					my_car->model << " " << 
+					my_car->year << "\n";
+				delete my_car;
+			}
+		</code></pre>		
+	</section>
+	<section>
+		<h2>Designing data structures</h2>
+		<ul>
+			<li>Data structures enable some abstraction</li>
+			<li>If a data structure can only be accessed through 
+				functions, it can be used regardless of its implementation</li>
+		</ul>
+	</section>
+	<section>
+		<h2>vectorint.h</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint/vectorint.h -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>vectorint.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint/vectorint.cpp -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>main.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint/main.cpp -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>Designing data structures</h2>
+		<ul>
+			<li>Data structures can include members of other data structures</li>
+			<li>Data structures can include members that are pointers to
+				themselves (recursive structures)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>listint.h</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/listint/listint.h -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>listint.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/listint/listint.cpp -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>main.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/listint/main.cpp -%}
+		</script></code></pre>
+	</section>
 </section>
 <section>
 	<section data-markdown>

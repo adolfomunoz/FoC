@@ -8,4 +8,4 @@ project(
 #For all executables in project 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
 
-add_executable(triangle repeat.cpp triangle.cpp)
+add_executable(vectorint vectorint.cpp main.cpp)
