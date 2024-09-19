@@ -8,6 +8,7 @@ title: Data structures and classes
 		<p>Group of data elements (members) of potentially different types 
 			grouped together under one name</p>
 	</section>
+
 	<section data-auto-animate>
 		<h1>Data structure</h1>
 
@@ -20,6 +21,7 @@ title: Data structures and classes
 			} data_variable1, data_variable2;
 		</code></pre>
 	</section>
+
 	<section data-auto-animate>
 		<h1>Data structure</h1>
 
@@ -34,6 +36,7 @@ title: Data structures and classes
 			DataType data_variable2;
 		</code></pre>
 	</section>
+	
 	<section>
 		<h2>Designing data structures</h2>
 		<ul>
@@ -44,7 +47,7 @@ title: Data structures and classes
 	</section>
 	<section>
 		<h2><code>struct</code> specification</h2>
-		<pre><code class="hljs cpp" data-trim data-line-numbers">
+		<pre><code class="hljs cpp" data-trim data-line-numbers>
 			struct Car {
 				string brand;
 				string model;
@@ -55,7 +58,7 @@ title: Data structures and classes
 
 	<section>
 		<h2><code>struct</code> usage</h2>
-		<pre><code class="hljs cpp" data-trim data-line-numbers>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 			int main() {
 				Car my_car;
 				my_car.brand = "BMW";
@@ -66,12 +69,12 @@ title: Data structures and classes
 					my_car.model << " " << 
 					my_car.year << "\n";
 			}
-		</code></pre>		
+		</script></code></pre>		
 	</section>
 
 	<section>
 		<h2><code>struct</code> usage (pointers)</h2>
-		<pre><code class="hljs cpp" data-trim data-line-numbers>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
 			int main() {
 				Car* my_car = new Car;
 				my_car->brand = "BMW"; //Similar to (*my_car).brand;
@@ -83,7 +86,7 @@ title: Data structures and classes
 					my_car->year << "\n";
 				delete my_car;
 			}
-		</code></pre>		
+		</script></code></pre>		
 	</section>
 	<section>
 		<h2>Designing data structures</h2>
@@ -138,6 +141,7 @@ title: Data structures and classes
 		</script></code></pre>
 	</section>
 </section>
+
 <section>
 	<section data-markdown>
 		<textarea data-template>
@@ -547,12 +551,6 @@ title: Data structures and classes
 				} 
 			};
 		</code></pre>
-		<pre><code class="hljs cpp" data-trim data-line-numbers>
-		{		
-			VectorInt vi(128);
-			...
-		} // vi dissappears here
-		</code></pre>
 	</section>
 	<section data-auto-animate>
 		<p><strong>Destructors</strong></p>
@@ -604,7 +602,7 @@ title: Data structures and classes
 	</section>
 	<section>
 		<p><strong>Operators:</strong> some of them can only be functions</p>
-		<pre><code class="hljs cpp" data-trim data-line-numbers="1-13|11-13">
+		<pre><code class="hljs cpp" data-trim data-line-numbers="1-13|11-13"><script type="text/template">
 			class Complex { 
 			private:
 				float _real, _imag; 
@@ -618,7 +616,7 @@ title: Data structures and classes
 			std::ostream& operator<<(std::ostream& os, const Complex& c) {
 				os<<c.real()<<" + "<<c.imag()<<"i"; return os;
 			} 
-		</code></pre>
+		</script></code></pre>
 	</section>
 	<section>
 		<p><strong>Operators:</strong> some of them can only be methods</p>
