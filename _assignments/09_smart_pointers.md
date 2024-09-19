@@ -5,98 +5,55 @@ title: Smart Pointers
 # Prerequisites
 
 In this laboratory, you are going to write several small programs covering the
-basic aspects of pointers. Please use the same compiler and setup that in
-previous laboratories. Please do not forget to use these `CXXFLAGS` when
-compiling with `g++`: `-Wall -Wextra -pedantic -Werror`. These flags would help
-you to write more solid code. Ideally, you should use `cmake` as your building
-tool.-
+basic aspects of [smart pointers](https://en.cppreference.com/w/cpp/memory).
+Please use the same compiler and setup that in previous laboratories. Please do
+not forget to use these `CXXFLAGS` when compiling with `g++`: `-Wall -Wextra
+-pedantic -Werror`. These flags would help you to write more solid code.
+Ideally, you should use `cmake` as your building tool. Also, you could consider
+adding the following lines to your `CMakeLists.txt` to ensure you are working on
+C++17.
+
+```
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+```
 
 Do not hesitate to contact the faculty in case of doubts about the exercises.
 
-# Identifying pointers
+# Identify memory leaks and remove them
 
+Identify all the memory leaks in the file `to_fix_memory_leaks.cpp` and
+avoid them using smart pointers. This example only requires `std::unique_ptr`.
 
-# Modifying variables with pointers and references
-
-Please write a program (named `write_through_ptr_ref.cpp`) that: 1) reads an integer
-number from the standard input using
-[std::cint](https://en.cppreference.com/w/cpp/io/cin), 2) increments the value
-by 2 with a [constant pointer](https://en.cppreference.com/w/cpp/language/pointer), 3)
-prints he updated value in the screen, 4) substracts the value by 2 with a reference, and
-5) prints the final value.
-
-# Fix the code
-
-
-## Double delete
-
-Could you please fix the following program named `to_fix_double_delete.cpp`.
-Please run the original program before writing the fix.
-
-```.cpp
-{% include src/assigment_04_classes_materials/to_fix_double_delete.cpp %}
-```
-
-## Missing new
-
-Could you please fix the following program named `to_fix_missing_new.cpp`.
-Please run the original program before writing the fix.
-
-```.cpp
-{% include src/assigment_04_classes_materials/to_fix_missing_new.cpp %}
-```
-
-# Avoid using pointers when possible
-
-Please read the `variables.cpp` program and briefly describe what the program does, specially
-in terms of pointer arithmetic.
-
-```.cpp
-{% include src/assigment_04_classes_materials/variables.cpp %}
-```
-
-Then, what would happen if n is changed to 7 in the loop. ¿Does the compiler
-gives any error?
-
-And, finally, could you remove the pointers and use a
-[range-for](https://en.cppreference.com/w/cpp/language/range-for) loop. The final
-file should be named `variables_wout_pointers.cpp`.
-
-# Pointer arithmetic
-
-Please write a program that finds the maximum and the minimum elements in a
-four by four float 2D matrix. The first version, `max_min_global_2d_matrix.cpp`
-of the program should store the matrix in the data section, and should access
-the elements with a pointer to float. The second version,
-`max_min_heap_2d_matrix.cpp`,  should read two integer numbers from the command
-line and create a matrix in the heap with those dimensions, always less than 5
-rows and columns. To fill the matrix, use the [C++ standard library
-pseudo-random number
-generators](https://en.cppreference.com/w/cpp/numeric/random) ; e.g.:
+Please understand and run the original program before starting your solution.
 
 ```
-#include <random>
-
-std::random_device rd;
-std::mt19937 gen(rd());
-std::uniform_real_distribution<float> dis {0.0f, 1.0f};
-
-auto pseudo_random_float_value = dis(gen);
+{% include src/assigment_09_classes_materials/to_fix_memory_leaks.cpp %}
 ```
 
-The output of both programs should be:
+# Using shared pointers
+
+Please describe what the following program does and answer the following questions:
+
+1. How many objects (variables) are allocated in the stack and in the heap?
+2. Can both `sp1` and `sp2` modify the object in the heap?
+3. Does the destruction of `sp2` releases the memory allocated in the heap?
 
 ```
-The maximum and minimun values of the matrix are: XXX and YYY
+{% include src/assigment_09_classes_materials/simple_shared_ptr.cpp  %}
 ```
 
-_Notes: Could you ask yourself how the memory stores the matrix? Do you need to
-delete the matrix in any case?_
+# Writing simple code with smart pointers
+
+Starting from the `max_min_heap_2d_matrix.cpp` code, replace all dynamic memory
+operations with smart pointers. The resulting file should be named
+`max_min_sp_2d_matrix.cpp`. The maximum and minimum values should be printed by
+reading the value from an smart pointer as well.
 
 # Submission
 
 Please group the all the files within a zip. In those assignments with text
 questions, add then at the beginning of the file as C++ comments.
 
-{% include jekyll/includes/submission.md filename="memory_management" %}
+{% include jekyll/includes/submission.md filename="smart_pointers" %}
 
