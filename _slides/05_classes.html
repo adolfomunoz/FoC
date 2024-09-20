@@ -638,3 +638,28 @@ title: Data structures and classes
 		</code></pre>
 	</section>
 </section>
+
+<section>
+	<section>
+		<h1>Class code distribution</h1>
+		<p>It is still a good idea to separate specification from implementation</p>
+	</section>
+	<section>
+		<h2>vectorint.h</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint-class/vectorint.h -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>vectorint.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint-class/vectorint.cpp -%}
+		</script></code></pre>
+	</section>
+	<section>
+		<h2>main.cpp</h2>
+		<pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+			{%- include src/vectorint-class/main.cpp -%}
+		</script></code></pre>
+	</section>
+</section>
