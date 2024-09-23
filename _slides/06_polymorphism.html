@@ -1,0 +1,102 @@
+---
+title: Polymorphism
+---
+
+<section>
+    <section data-auto-animate>
+        <h1>Polymorphism</h1>
+
+        <p>The ability to have a function/method to do different thinkgs depending on the involved data types</p>
+    </section>
+
+    <section data-auto-animate>
+        <h1>Polymorphism</h1>
+
+        <ul>
+        <li>Overloading: several functions with same name.</li>
+        <li>Generics: leaving data type as parameter</li>
+        <li>Inheritance: a class representing its subclasses.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Advantages of polymorphism</h2>
+
+        <ul>
+           <li>Reusability of code</li>
+           <li>Reduction of coupling among functionalities</li> 
+           <li>Further abstraction</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Overloading</h1>
+
+        <p>Two or more functions with the same name but with different types and number of arguments</p>
+    </section>
+
+    <section>
+        <h1>Overloading</h1>
+
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/overloading.cpp -%}
+        </script></code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Overloading</h1>
+
+        <p>Two or more functions with the same name but with different types and number of arguments</p>
+    </section>
+
+    <section>
+        <h1>Overloading</h1>
+
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/overloading.cpp -%}
+        </script></code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Generics</h1>
+
+        <p>Programming feature through which algorithms and data types are written in terms of types (parameters)
+        to be specified later</p>
+    </section>
+
+    <section>
+        <h1>Generics</h1>
+
+        <p>Two stages:</p>
+        <ul>
+            <li>Specification: define the algorithm/data type leaving one or more types as parameters</li>
+            <li>Instantiation: choose the types for those parameters upon usage</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Generic specification</h2>
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/vector-generic/vector.h -%}
+        </script></code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Generic specification</h2>
+        
+        <p>In C++, it needs to be completely on a header file.</p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Generic Instantiation</h2>
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/vector-generic/main.cpp -%}
+        </script></code></pre>
+    </section>
+</section>
