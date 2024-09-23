@@ -93,10 +93,101 @@ title: Polymorphism
         <p>In C++, it needs to be completely on a header file.</p>
     </section>
 
-    <section data-auto-animate>
+    <section>
         <h2>Generic Instantiation</h2>
         <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
             {%- include src/vector-generic/main.cpp -%}
         </script></code></pre>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Generic algorithms</h2>
+
+        <ul>
+            <li>Algorithms can also be generic.</li>
+            <li>If possible, types are automatically deduced.</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Generic algorithms</h2>
+
+        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/overloading-generic.cpp -%}
+        </script></code></pre>
+    </section>
+
+    <section>
+        <h2>Generics</h2>
+
+        <p>There are many generic data types in C++:</p>
+        <ul>
+            <li><code>std::vector&lt;T&gt;</script></code></li>
+            <li><code>std::list&lt;T&gt;</script></code></li>
+            <li><code>std::unique_ptr&lt;T&gt;</script></code></li>
+            <li><code>std::shared_ptr&lt;T&gt;</script></code></li>
+            <li>...</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Inheritance</h1>
+
+        <p>Relationship between two classes that enables one of them (superclass)
+            to represent another (subclass)</p>
+    </section>
+
+    <section>
+        <h1>Inheritance</h1>
+
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SuperC {
+                        int superattribute;
+                        void supermethod();
+                        SuperC(int a) {
+                            superattribute = a;
+                        } 
+                    }; 
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SubC : public SuperC {
+                        int subattribute;
+                        void submethod();
+                        SubC(int a, int b) :
+                            SuperC(a) {
+                            subattribute=b;
+                        } 
+                    }; 
+                    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <p class="fragment"><code>SubC</code> inherits <code>superattribute</code>
+            and <code>supermethod()</code></p>
+    </section>
+
+    <section>
+        <h2>Inheritance polymorphism</h2>
+
+        <p>A pointer / reference to a superclass can represent any of its subclasses</p>
+
+        <pre><code class="hljs cpp" data-trim data-line-numbers>
+            void function(SuperC* c) {
+                ...
+            }
+            int main() {
+                SuperC superc;
+                SubC subc;
+                functionc(&superc); 
+                functionc(&subc); //This is also legal
+            } 
+            </code></pre>       
     </section>
 </section>
