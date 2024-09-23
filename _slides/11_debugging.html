@@ -2,41 +2,86 @@
 title: Introduction to Debugging
 ---
 
-  <section>
+<section>
   <h2> Introduction to Debugging with GDB</h2>
   <img src="{{ site.baseurl }}/img/phd011406s.gif" height="250">
   <em style="font-size:25%" text-align="center">http://www.phdcomics.com/comics/archive.php?comicid=673</em>
-  </section>
+</section>
 
-  <section>
-    <h2>Goals</h2>
-      <ul>
-      <li>Able to autonomously debug programs in C++</li>
-      <li>Debugging from a practical point of view, <em>how to</em></li>
-      <li>More formal aspects and hardware support not covered</li>
-      <li>Use other tools, i.e.; linters, to minimize bugs</li> 
-      </ul>
-  </section>
+<section>
+  <h2>Goals</h2>
+  <ul>
+    <li>Able to autonomously debug programs in C++</li>
+    <li>Debugging from a practical point of view, <em>how to</em></li>
+    <li>More formal aspects and hardware support not covered</li>
+    <li>Use other tools, i.e.; linters, to minimize bugs</li> 
+  </ul>
+</section>
 
-  <section>
-    <h2>References</h2>
+<section>
+  <h2>Asserting in C/C++</h2>
+</section>
+
+<section>
+  <h2>Program Execution Flow with Bugs</h2>
+  <img src="{{ site.baseurl }}/img/Program_execution_bug.png" height="250">
+  <em style="font-size:25%" text-align="center">Why Programs Fail</em>
+</section>
+
+<section>
+  <h2>Seven Steps in Debugging (TRAFFIC)</h2>
+  <ol style="font-size:75%">
+    <li><b>Track</b> the problem in the database</li>
+    <li><b>Reproduce</b> the failure</li>
+    <li><b>Automate</b> and simplify the test case</li>
+    <li><b>Find</b> possible infection origins</li>
+    <li><b>Focus</b> on the most likely origins:</li>
     <ul>
-      <li>GDB documentation: <a href="http://www.gnu.org/software/gdb/documentation/"></a></li>
-      <li>The Developer’s Guide to Debugging, by Grötker, Holtmann, Keding, and Wloka: 
-        <a href="http://www.debugging-guide.com/">http://www.debugging-guide.com/</a></li>
-      <li>Why Programs Fail, A Guide To Systematic Debugging, by A. Zeller,
-        <a href="http://www.whyprogramsfail.com/">http://www.whyprogramsfail.com/</a></li>
-  </section>
+      <li>Known infections</li>
+      <li>Causes in state, code, and input</li>
+      <li>Anomalies</li>
+      <li>Code smells</li>
+    </ul>
+    <li><b>Isolate</b> the infection chain</li>
+    <li><b>Correct</b> the defect</li>
+  </ol>
+  <em style="font-size:25%" text-align="center">Source: Why Program Fail, chapter 1.3</em>
+</section>
 
-    <section>
-      <h2>Asserting in C/C++</h2>
-    </section>
+<section>
+  <h2><b>Disclaimer</b></h2>
+  <ul>
+    <li>The gdb part assumes using gdb directly on Linux</li>
+    <li>Gdb support on VS code on windows is <a href="https://code.visualstudio.com/docs/cpp/cpp-debug">possible</a></li>
+  </ul>
+</section>
 
-    <section>
-      <h2>Seven Steps in Debugging</h2>
-      <ol>
-        <li><b>Track</b> the problem in the database</li>
+<section>
+  <h2>GDB basic commands</h2>
+  <ul>
+    <li><code>help &lt;command&gt;</code>: show information on every command</li>
+    <li><code>break</code>: set a break point, you can use function names, code lines, ... </li>
+    <li><code>run</code>: launch the execution of a program</li>
+    <li><code>set args</code>: set the execution arguments, no effect after <code>run</code></li>
+  </ul>
+</section>
 
-      </ol>
-    </section>
+<section>
+  <h2>GDB basic commands continuation</h2>
+  <ul>
+    <li><code>cont</code>: continue current execution</li>
+    <li><code>next</code>: execute a single step entering in methods, subroutines, ...</li>
+    <li><code>step</code>: execute a single step <b>NOT</b> entering in methods, subroutines, ...</li>
+  </ul>
+</section>
+
+<section>
+  <h2>References</h2>
+  <ul>
+    <li>GDB documentation: <a href="http://www.gnu.org/software/gdb/documentation/">https://www.sourceware.org/gdb/documentation/</a></li>
+    <li>The Developer’s Guide to Debugging, by Grötker, Holtmann, Keding, and Wloka: 
+      <a href="http://www.debugging-guide.com/">http://www.debugging-guide.com/</a></li>
+    <li>Why Programs Fail, A Guide To Systematic Debugging, by A. Zeller,
+      <a href="http://www.whyprogramsfail.com/">http://www.whyprogramsfail.com/</a></li>
+</section>
 
