@@ -48,22 +48,6 @@ title: Polymorphism
 
 <section>
     <section>
-        <h1>Overloading</h1>
-
-        <p>Two or more functions with the same name but with different types and number of arguments</p>
-    </section>
-
-    <section>
-        <h1>Overloading</h1>
-
-        <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
-            {%- include src/overloading.cpp -%}
-        </script></code></pre>
-    </section>
-</section>
-
-<section>
-    <section>
         <h1>Generics</h1>
 
         <p>Programming feature through which algorithms and data types are written in terms of types (parameters)
@@ -173,13 +157,29 @@ title: Polymorphism
             and <code>supermethod()</code></p>
     </section>
 
+    <section data-auto-animate>
+		<h2>Visibility</h2>
+		<ul>
+			<li><b><code>private:</code> </b> Cannot access except from within the class</li>
+			<li><b><code>public:</code> </b> Can access from everywhere</li>
+		</ul>
+	</section>
+
+    <section data-auto-animate>
+		<h2>Visibility</h2>
+		<ul>
+			<li><b><code>private:</code> </b> Cannot access except from within the class</li>
+			<li><b><code>protected:</code> </b> Can access from within the class and its subclasses</li>
+			<li><b><code>public:</code> </b> Can access from everywhere</li>
+		</ul>
+	</section>
     <section>
         <h2>Inheritance polymorphism</h2>
 
         <p>A pointer / reference to a superclass can represent any of its subclasses</p>
 
         <pre><code class="hljs cpp" data-trim data-line-numbers>
-            void function(SuperC* c) {
+            void functionc(SuperC* c) {
                 ...
             }
             int main() {
@@ -188,6 +188,152 @@ title: Polymorphism
                 functionc(&superc); 
                 functionc(&subc); //This is also legal
             } 
-            </code></pre>       
+            </code></pre> 
+        <p class="fragment"><code>functionc</code> works with both types</p>      
+    </section>
+
+    <section>
+        <h2>Inheritance polymorphism</h2>
+
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SuperC {
+                     virtual void polymethod();
+                    }; 
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SubC : public SuperC {
+                     void polymethod() override;
+                    }; 
+                    </code></pre>
+                </td>
+            </tr>
+        </table>
+        <pre><code class="hljs cpp" data-trim data-line-numbers>
+            void functionc(SuperC* c) {
+                c->polymethod();
+            } 
+        </code></pre>
+        <p class="fragment"><code>functionc</code> calls either 
+            <code>SuperC::polymethod</code> or <code>SubC::polymethod</code></p> 
+    </section>
+
+    <section>
+        <h2>Inheritance polymorphism</h2>
+
+        <table width="100%" style="font-size:0.9em">
+            <tr>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SuperC {
+                     virtual void polymethod() = 0;
+                    }; 
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    void functionc(SuperC* c) {
+                     c->polymethod();
+                    } 
+                    </code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SubC1 : public SuperC {
+                     void polymethod() override;
+                    }; 
+                    </code></pre>
+                </td>
+                <td width="50%">
+                    <pre><code class="hljs cpp" data-trim data-line-numbers>
+                    class SubC2 : public SuperC {
+                     void polymethod() override;
+                    }; 
+                    </code></pre>
+                </td>
+            </tr>
+        </table>
+
+        <p class="fragment" style="font-size:0.9em"><code>SuperC::polymethod</code> is not implemented. 
+            <br/><code>functionc</code> calls either 
+            <code>SubC1::polymethod</code> or <code>SubC2::polymethod</code></p> 
+    </section>
+
+    <section>
+        <h2>Thinking with inheritance</h2>
+
+        <ul>
+            <li>Superclasses represent generalizations of their subclasses</li>
+            <li>Subclasses represent particular cases of superclasses</li>
+            <li>Without polymorphism there is no need for inheritance</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Example</h2>
+
+        <table width="100%" style="font-size:0.8em">
+            <tr>
+                <td width="40%">
+                    <strong><code>shape.h</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/shape.h -%}
+                    </script></code></pre>
+                </td>
+                <td width="50%">
+                    <strong><code>fence.h</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/fence.h -%}
+                    </script></code></pre>
+                    <strong><code>fence.cpp</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/fence.cpp -%}
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Example</h2>
+
+        <table width="100%" style="font-size:0.75em">
+            <tr>
+                <td width="40%">
+                    <strong><code>circle.h</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/circle.h -%}
+                    </script></code></pre>
+                    <strong><code>circle.cpp</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/circle.cpp -%}
+                    </script></code></pre>
+                </td>
+                <td width="45%">
+                    <strong><code>rectangle.h</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/rectangle.h -%}
+                    </script></code></pre>
+                    <strong><code>rectangle.cpp</code></strong>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                        {%- include src/fences/rectangle.cpp -%}
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Example</h2>
+        <strong><code>main.cpp</code></strong>
+        <pre style="font-size:0.48em"><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+            {%- include src/fences/main.cpp -%}
+        </script></code></pre>
     </section>
 </section>
