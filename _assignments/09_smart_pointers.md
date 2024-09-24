@@ -28,7 +28,7 @@ avoid them using smart pointers. This example only requires `std::unique_ptr`.
 Please understand and run the original program before starting your solution.
 
 ```
-{% include src/assigment_09_classes_materials/to_fix_memory_leaks.cpp %}
+{% include src/assignment_09_classes_materials/to_fix_memory_leaks.cpp %}
 ```
 
 # Using shared pointers
@@ -40,7 +40,7 @@ Please describe what the following program does and answer the following questio
 3. Does the destruction of `sp2` releases the memory allocated in the heap?
 
 ```
-{% include src/assigment_09_classes_materials/simple_shared_ptr.cpp  %}
+{% include src/assignment_09_classes_materials/simple_shared_ptr.cpp  %}
 ```
 
 # Writing simple code with smart pointers
