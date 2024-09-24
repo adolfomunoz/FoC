@@ -56,7 +56,7 @@ Could you please fix the following program named `to_fix_missing_new.cpp`.
 Please run the original program before writing the fix. 
 
 ```.cpp
-{% include src/assigment_04_classes_materials/to_fix_missing_new.cpp %}
+{% include src/assignment_04_classes_materials/to_fix_missing_new.cpp %}
 ```
 
 # Avoid using pointers when possible
@@ -65,7 +65,7 @@ Please read the `variables.cpp` program and briefly describe what the program do
 in terms of pointer arithmetic.
  
 ```.cpp
-{% include src/assigment_04_classes_materials/variables.cpp %}
+{% include src/assignment_04_classes_materials/variables.cpp %}
 ```
 
 Then, what would happen if n is changed to 7 in the loop. ¿Does the compiler
