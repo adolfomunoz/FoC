@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
     cout<<"Fence cost:\n";
     cout<<"   "<<fence_cost(*shape,wood)<<" if made of wood\n";
     cout<<"   "<<fence_cost(*shape,iron)<<" if made of iron\n";
+    delete shape;
 } 
 
 
