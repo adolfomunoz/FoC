@@ -47,7 +47,7 @@ Could you please fix the following program named `to_fix_double_delete.cpp`.
 Please run the original program before writing the fix. 
 
 ```.cpp
-{% include src/assigment_04_classes_materials/to_fix_double_delete.cpp %}
+{% include src/assignment_04_classes_materials/to_fix_double_delete.cpp %}
 ```
 
 ## Missing new
