@@ -33,7 +33,7 @@ In which section each variable will be stored?
 
 Please write a program (named `write_through_ptr_ref.cpp`) that: 1) reads an integer
 number from the standard input using
-[std::cint](https://en.cppreference.com/w/cpp/io/cin), 2) increments the value
+[std::cin](https://en.cppreference.com/w/cpp/io/cin), 2) increments the value
 by 2 with a [constant pointer](https://en.cppreference.com/w/cpp/language/pointer), 3)
 prints he updated value in the screen, 4) substracts the value by 2 with a reference, and
 5) prints the final value.
