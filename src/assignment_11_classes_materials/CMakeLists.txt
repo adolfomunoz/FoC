@@ -7,10 +7,13 @@ project (assignment_11_debug)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(factorial factorial.cpp)
+
 if (MSVC)
-  target_compile_options(factorial PRIVATE /W4 /WX)
+  set(MY_CPP_FLAGS /W4 /W)
 else()
-  target_compile_options(factorial PRIVATE -Wall -Wextra -pedantic -Werror)
+  set(MY_CPP_FLAGS -Wall -Wextra -pedantic -Werror)
 endif()
+
+add_executable(factorial factorial.cpp)
+target_compile_options(factorial PRIVATE ${MY_CPP_FLAGS})
 
