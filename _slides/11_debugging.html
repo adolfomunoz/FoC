@@ -146,12 +146,30 @@ common                     handle                     proc                      
 
 <section>
   <h2>Conditional breakpoints</h2>
+  <ul>
+    <li>Add a constraint that fires the breakpoint when true</li>
+    <li>Enables to stop at the required time</li>
+    <pre><code>break source_file.cpp:279 if ptr == nullptr</code></pre>
+
+  </ul>
+
 
 
 </section>
 
 <section>
   <h2>Pointers and gdb</h2>
+</section>
+
+<section>
+  <h2>Debugging multi-threaded programs</h2>
+  <p><em>Expecial features for <a href="https://sourceware.org/gdb/current/onlinedocs/gdb.html/Threads.html#Threads">multi-threading</a></em></p>
+  <ul>
+    <li>Thread creation notification</li>
+    <li><code>thread &lt;id&gt;</code>: switch to <code>&lt;id&gt;</code> thread</li>
+    <li><code>thread apply [id-list | all ] &lt;command&gt;</code>: execute the commands on the given list of threads</li>
+    <li>Breakpoints per thread</li>
+  </ul>
 </section>
 
 

@@ -20,3 +20,6 @@ target_compile_options(factorial PRIVATE ${MY_CPP_FLAGS})
 add_executable(segmentation_fault segmentation_fault.cpp)
 target_compile_options(segmentation_fault PRIVATE ${MY_CPP_FLAGS})
 
+add_executable(fixed_segmentation_fault fixed_segmentation_fault.cpp)
+target_compile_options(fixed_segmentation_fault PRIVATE ${MY_CPP_FLAGS})
+

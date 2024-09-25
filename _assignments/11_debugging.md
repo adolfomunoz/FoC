@@ -150,6 +150,24 @@ Value returned is $4 = 1
    at the same time you are debugging with the `layout split` command. You can return
    to the original layout with `tui disable`.
 
+## Conditional breakpoints
+
+1. Please briefly describe the command required to have a condtional breakpoint
+   in the factorial function when `n` is less than 5.
+
+## Segmentation faults
+
+Segmentation faults are one the most prevalent errors working with pointers in
+c++. In this exercise, you need to find the segmentation faults in a program
+named `segmentation_fault.cpp`  with `gdb` and write a correct version of the program
+in `fixed_segmentation_fault.cpp`, which is an empty file in the repo.
+
+1. Please describe how the segmentation faults occur.
+
+1. Please comment how to find the exacts errors with `gdb`.
+
+1. Would an `std::vector` container fix the issue?
+
 # Submission
 
 Please group the all the files within a zip. In those assignments with text

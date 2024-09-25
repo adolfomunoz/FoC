@@ -36,7 +36,7 @@ namespace {
         array[i]=dis(gen);
       }
     }
-};
+}
 
 int main()
 {
