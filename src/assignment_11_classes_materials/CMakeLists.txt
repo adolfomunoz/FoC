@@ -17,3 +17,6 @@ endif()
 add_executable(factorial factorial.cpp)
 target_compile_options(factorial PRIVATE ${MY_CPP_FLAGS})
 
+add_executable(segmentation_fault segmentation_fault.cpp)
+target_compile_options(segmentation_fault PRIVATE ${MY_CPP_FLAGS})
+
