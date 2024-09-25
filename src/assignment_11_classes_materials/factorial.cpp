@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 unsigned int factorial(unsigned int n)
 {
   if(n == 0) {
