@@ -32,14 +32,28 @@ title: Introduction to Debugging
     <li>Check whether a condition holds. Useful to verify pre and post-conditions</li>
     <li>E.g., verify than the size of an array is larger than 0</li>
     <li>Dynamic asserts inherited from c, include the <code><cassert></code><a href="https://en.cppreference.com/w/cpp/error/assert">header</a></li>
+    <li><code>assert(condition)</code> is a macro</li> 
   </ul>
+</section>
+
+<section>
+  <h2>assert examples</h2>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/assertion.cpp -%}
+ </script></code></pre> 
 </section>
 
 <section>
   <h2>Contracts in C++26</h2>
   <ul>
-
-    </ul>
+    <li>C++26 will provide a better form of assertions: contracts</li>
+    <li>Contracts allow to specify pre-, post-conditions and invariants</li>
+    <li>Please stay tunned</li>
+    <ul>
+  </ul>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/contracts_26.cpp -%}
+ </script></code></pre> 
 </section>
 
 <section>
