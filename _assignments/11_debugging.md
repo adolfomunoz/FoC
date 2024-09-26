@@ -168,6 +168,12 @@ in `fixed_segmentation_fault.cpp`, which is an empty file in the repo.
 
 1. Would an `std::vector` container fix the issue?
 
+## Assertions
+
+1. Could you please add some assertions in your `max_min_heap_2d_matrix.cpp`
+   program to detect invalid pointers and other causes of faults. Each
+   assertion should include a justification.
+
 # Submission
 
 Please group the all the files within a zip. In those assignments with text

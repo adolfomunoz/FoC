@@ -44,6 +44,17 @@ title: Introduction to Debugging
 </section>
 
 <section>
+  <h2>static asserts</h2>
+  <ul>
+    <li>C++11 introduced static asserts checked at compile time</li>
+    <li>Powerfull tool with templates</li>
+  </ul>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/static_assert.cpp -%}
+ </script></code></pre> 
+</section>
+
+<section>
   <h2>Contracts in C++26</h2>
   <ul>
     <li>C++26 will provide a better form of assertions: contracts</li>
@@ -56,9 +67,11 @@ title: Introduction to Debugging
  </script></code></pre> 
 </section>
 
+<!--
 <section>
   <h2>Logging in C++</h2>
 </section>
+-->
 
 <section>
   <h2>Program Execution Flow with Bugs</h2>
@@ -175,16 +188,20 @@ common                     handle                     proc                      
   <ul>
     <li>Add a constraint that fires the breakpoint when true</li>
     <li>Enables to stop at the required time</li>
-    <pre><code>break source_file.cpp:279 if ptr == nullptr</code></pre>
-
   </ul>
-
-
-
+  <pre><code>break source_file.cpp:279 if ptr == nullptr</code></pre>
 </section>
 
 <section>
   <h2>Pointers and gdb</h2>
+  <ul>
+    <li>Gdb provide syntax to common <em>pointer</em> operators: <code>dereference (*), address-of (&amp;), dot (.), and arrow (-&gt;)</code></li>
+    <li>Examples:</li>
+    <ul>
+      <li><code>(gdb) print &amp;var</code></li>
+      <li><code>(gdb) print struct_ptr-&gt;field</code></li>
+    </ul>
+  </ul>
 </section>
 
 <section>
@@ -199,9 +216,11 @@ common                     handle                     proc                      
 </section>
 
 
+<!--
 <section>
   <h2>Valgrind</h2>
 </section>
+-->
 
 <section>
   <h2>References</h2>
