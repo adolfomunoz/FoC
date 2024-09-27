@@ -7,17 +7,549 @@ title: Good practices
 
         <p class="fragment">Keep It Simple, Stupid</p>
     </section>
+
+    <section>
+        <img src="{{ site.baseurl }}/img/oopexpectations.png"></img>
+    </section>
+
+    <section>
+        <h1>Don't repeat yourself</h1>
+
+        <p class="fragment">No data structure nor algorithm should appear twice. Duplicity incrases the challenge
+            of changing, mantaining and reading the code.<br/><br/>There are plenty of strategies for reusing code. <strong>Use them.</strong>
+        </p>
+    </section>
+
+    <section>
+        <h1>You aren't going to need it (YAGNI)</h1>
+
+        <p class="fragment">Never add any kind of functionality that you don't directly need.<br/><br/>You sacrifice your own time and you're unlikely
+        testing and documting it.
+        </p>
+    </section>
+
+    <section>
+        <h1>Single responsibility principle</h1>
+
+        <p class="fragment">Each module/class/function/method should have a clear encapsulated responsibility over the whole software, so it 
+            has a single reason to change.
+        </p>
+    </section>
 </section>
+
 <section>
     <section>
-        <h1>Configuring programs without recompiling</h1>
+        <h1>Test driven development (TDD)</h1>
+
+        <p>Create your test code and production code <strong>simultaneously</strong></p>
+    </section>
+
+    <section data-auto-animate>
+        <h2>TDD cycle</h2>
+        <ul>
+            <li>Create a test that shows error or missing feature</li>
+        </ul>
+        {%- include img/tdd-cycle-01.svg -%}
+    </section>
+
+    <section data-auto-animate>
+        <h2>TDD cycle</h2>
+        <ul>
+            <li>Create a test that shows error or missing feature</li>
+            <li>Correct that error in your code</li>
+        </ul>
+        {%- include img/tdd-cycle-02.svg -%}
+    </section>
+
+    <section data-auto-animate>
+        <h2>TDD cycle</h2>
+        <ul>
+            <li>Create a test that shows error or missing feature</li>
+            <li>Correct that error in your code</li>
+            <li>Refactor to acomodate the new code and start again</li>
+        </ul>
+        {%- include img/tdd-cycle-03.svg -%}
+    </section>
+
+    <section>
+        <h2>TDD advantages</h2>
+
+        <ul>
+            <li>Thinking about the test before thinking about the solution</li>
+            <li>Keep compatibility with previous test</li>
+            <li>The testing code forces your production code to be reusable</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include "is_prime.h"
+                    int main() {
+
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2)) 
+                        cerr<<"!is_prime(2)"<<endl; 
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                   <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2)) 
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3)) 
+                        cerr<<"!is_prime(3)"<<endl; 
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                     <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2)) 
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4)) 
+                        cerr<<"is_prime(4)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      return n>3;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3)) 
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4)) 
+                        cerr<<"is_prime(4)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      return n>3;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      return (n>3) || (n==5);
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                      if (is_prime(27))
+                        cerr<<"is_prime(27)"<<endl;
+                      if (!is_prime(29))
+                        cerr<<"!is_prime(29)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (is_prime(1)) 
+                        cerr<<"is_prime(1)"<<endl;
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                      if (is_prime(27))
+                        cerr<<"is_prime(27)"<<endl;
+                      if (!is_prime(29))
+                        cerr<<"!is_prime(29)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      if (n==1) return false;
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (is_prime(1)) 
+                        cerr<<"is_prime(1)"<<endl;
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                      if (is_prime(27))
+                        cerr<<"is_prime(27)"<<endl;
+                      if (!is_prime(29))
+                        cerr<<"!is_prime(29)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      if (n==1) return false;
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (is_prime(-1))
+                        cerr<<"is_prime(-1)"<<endl;
+                      if (is_prime(1)) 
+                        cerr<<"is_prime(1)"<<endl;
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                      if (is_prime(27))
+                        cerr<<"is_prime(27)"<<endl;
+                      if (!is_prime(29))
+                        cerr<<"!is_prime(29)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h2>TDD example</h2>
+        <table width="100%">
+            <tr><th><code>is_prime.h</code></th><th><code>main-test.cpp</code></th></tr>
+            <tr>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #pragma once
+                    bool is_prime(int n) {
+                      if (n<=1) return false;
+                      for (int i = 2; i<n; ++i)    
+                        if ((n%i)!=0)
+                          return false;
+                      return true;
+                    } 
+                    </script></code></pre>
+                </td>
+                <td>
+                    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+                    #include <iostream>
+                    #include "is_prime.h"
+                    using namespace std;
+                    int main() {
+                      if (is_prime(-1))
+                        cerr<<"is_prime(-1)"<<endl;
+                      if (is_prime(1)) 
+                        cerr<<"is_prime(1)"<<endl;
+                      if (!is_prime(2))
+                        cerr<<"!is_prime(2)"<<endl; 
+                      if (!is_prime(3))
+                        cerr<<"!is_prime(3)"<<endl; 
+                      if (is_prime(4))
+                        cerr<<"is_prime(4)"<<endl;
+                      if (!is_prime(5))
+                        cerr<<"!is_prime(5)"<<endl;
+                      if (is_prime(27))
+                        cerr<<"is_prime(27)"<<endl;
+                      if (!is_prime(29))
+                        cerr<<"!is_prime(29)"<<endl;
+                    }
+                    </script></code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Fail fast</h1>
+        
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Avoid recompiling</h1>
         <ul>
             <li>Command line parameters</li>
             <li>Configuration files (.ini)</li>
         </ul>
-    </section>
-
-    <section>
-        <h1>Test driven development</h1>
     </section>
 </section>
