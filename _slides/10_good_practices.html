@@ -71,7 +71,7 @@ title: Good practices
     <ul>
       <li>Activate warning flags:<br/><code>-Wall -Wpedantic -Werror</code></li>
       <li>Use "safety" keywords:<br/><code>public private const override</code></li>
-      <li>Use static asserts:<br/><code>static_assert<...,"..."></code></li>
+      <li>Use static asserts (or C++20 concepts):<br/><code>static_assert<...,"..."></code></li>
     </ul>
   </section>
 
@@ -81,7 +81,7 @@ title: Good practices
 
     <ul>
       <li>Checks on execution:<br/><code>#ifndef NDEBUG ... #endif</code></li>
-      <li>Execution asserts:<br/><code>assert(...)</code></li>
+      <li>Asserts (or C++26 contracts):<br/><code>assert(...) pre(...) post(...)</code></li>
       <li>Test driven development</li>
     </ul>
   </section>
