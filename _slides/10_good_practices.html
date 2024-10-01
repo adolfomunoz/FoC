@@ -5,7 +5,7 @@ title: Good practices
     <section>
         <h1>KISS</h1>
 
-        <p class="fragment">Keep It Simple, Stupid</p>
+        <p>Keep It Simple, Stupid</p>
     </section>
 
     <section>
@@ -35,6 +35,56 @@ title: Good practices
             has a single reason to change.
         </p>
     </section>
+</section>
+
+<section>
+  <section>
+      <h1>Fail fast</h1>
+      
+      <p>Find your errors as early as possible</p>
+  </section>
+
+  <section>
+    <h1>Fail fast</h1>
+    
+    <ul>
+      <li class="fragment">Better at coding than at compiling</li>
+      <li class="fragment">Better at compiling than at executing</li>
+      <li class="fragment">Better at executing than at debugging</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fail fast</h2>
+    <p>Better at coding than at compiling</p>
+
+    <ul>
+      <li>Use a powerful IDE</li>
+      <li>Save your files regularly</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fail fast</h2>
+    <p>Better at compiling than at executing</p>
+
+    <ul>
+      <li>Activate warning flags:<br/><code>-Wall -Wpedantic -Werror</code></li>
+      <li>Use "safety" keywords:<br/><code>public private const override</code></li>
+      <li>Use static asserts:<br/><code>static_assert<...,"..."></code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fail fast</h2>
+    <p>Better at executing than at debugging</p>
+
+    <ul>
+      <li>Checks on execution:<br/><code>#ifndef NDEBUG ... #endif</code></li>
+      <li>Execution asserts:<br/><code>assert(...)</code></li>
+      <li>Test driven development</li>
+    </ul>
+  </section>
 </section>
 
 <section>
@@ -535,21 +585,65 @@ title: Good practices
             </tr>
         </table>
     </section>
+
+    <section>
+      <h2>Test driven development</h2>
+      <p>There are tools for facilitating TDD</p>
+      <ul>
+          <li><a href="https://google.github.io/googletest/">Google test</a></li>
+          <li><a href="https://github.com/catchorg/Catch2">Catch2</a></li>
+          <li><a href="https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html">CTest</a> (integrated with CMake)</li>
+      </ul>
+   </section>
 </section>
 
 <section>
-    <section>
-        <h1>Fail fast</h1>
-        
-    </section>
-</section>
+  <section>
+      <h1>Advice from other courses</h1>
+      <p>We asked other MRGCV professors what is their advice for you, seeing code from previous years' students</p>
+  </section>
 
-<section>
-    <section>
-        <h1>Avoid recompiling</h1>
-        <ul>
-            <li>Command line parameters</li>
-            <li>Configuration files (.ini)</li>
-        </ul>
-    </section>
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Sometimes it is easier to use debugging tools than to run full executions while experimenting with parameters, particularly if 
+       execution can take several minutes.
+    </p>
+  </section>
+
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Use functions: it is suprisingly common to see "copy and paste" code that could be easily abstracted as a function.
+    </p>
+  </section>
+
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Avoid side effects when possible. These are represented by global variables, non-const reference parameters...
+    </p>
+  </section>
+
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Don't create useless code, where useless means both that you are not going to use it or that it is not needed to obtain the solution</p>
+  </section>
+
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Do not "hardcode" program parameters that you need to change to experiment with: obtain their values from a commandline 
+      or from a file (<code>.ini</code>, <code>.xml</code> ...)
+    </p>
+  </section>
+
+  <section>
+    <h3>Advice from other courses</h3>
+    
+    <p>Produce readable code, comment it when needed. Even better than commenting the code, use function and variable names that are so clear that 
+      they can be understood even without comments.
+    </p>
+  </section>
 </section>
