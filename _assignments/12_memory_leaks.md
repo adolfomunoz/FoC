@@ -73,6 +73,7 @@ your job is to build and run the `leak_factorial `application within Valgrind an
 
 1. Verify with Valgrind that `correct_factorial` does not have any memory leak.
 
+1. Please repeat the previous 3 questions for the `find_memory_leaks.cpp` source file.
 
 # Finding other errors with Valgrind
 
