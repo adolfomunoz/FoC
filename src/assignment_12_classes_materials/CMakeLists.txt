@@ -17,3 +17,11 @@ endif()
 add_executable(find_memory_leaks find_memory_leaks.cpp)
 target_compile_options(find_memory_leaks PRIVATE ${MY_CPP_FLAGS})
 
+add_executable(incorrect_delete incorrect_delete.cpp)
+target_compile_options(incorrect_delete PRIVATE ${MY_CPP_FLAGS})
+
+add_executable(leak_factorial leak_factorial.cpp)
+target_compile_options(leak_factorial PRIVATE ${MY_CPP_FLAGS})
+
+add_executable(circular_dependency circular_dependency.cpp)
+target_compile_options(circular_dependency PRIVATE ${MY_CPP_FLAGS})
