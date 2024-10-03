@@ -25,3 +25,9 @@ target_compile_options(leak_factorial PRIVATE ${MY_CPP_FLAGS})
 
 add_executable(circular_dependency circular_dependency.cpp)
 target_compile_options(circular_dependency PRIVATE ${MY_CPP_FLAGS})
+
+if (CMAKE_BUILD_TYPE STREQUAL Debug)
+  add_executable(buffer_overflow ../buffer_overflow.cpp)
+  target_compile_options(buffer_overflow PRIVATE ${MY_CPP_FLAGS} -fsanitize=address)
+  target_link_options(buffer_overflow PRIVATE -fsanitize=address)
+endif()
