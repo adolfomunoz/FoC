@@ -71,7 +71,7 @@ title: Introduction to Memory Leaks
 <section>
   <h2>Quiz</h2>
   <ul>
-    <li>Can Valgrind detect this error:</li>
+    <li>Can Valgrind detect this error?</li>
   </ul>
       <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
         {%- include src/buffer_overflow.cpp -%}</script></code></pre>
@@ -79,7 +79,18 @@ title: Introduction to Memory Leaks
 
 <section>
   <h2>Address Sanitizers</h2>
+  <ul>
+    <li>Address Sanitizers (<a href="https://github.com/google/sanitizers/wiki/AddressSanitizer">ASan</a>) detects memory issues at runtime</li>
+    <li>Contrary to valgrind, ASan requires linking with its library</li>
+    <li>To use, you have to add the following compilation flags: <pre><code>-fsanitize=address -static-libasan</code></pre></li>
+  </ul>
+</section>
 
-  añadir flags a cmake
-
+<section>
+  <h2>Summary</h2>
+  <ul>
+    <li>Remeber to use smart pointers</li>
+    <li>Test your code with memory-issues tools</li>
+    <li>Explore tools such linters as well</li>
+  </ul>
 </section>

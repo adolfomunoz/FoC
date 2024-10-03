@@ -112,6 +112,13 @@ between two nodes.
 
 1. Write a fixed version of `fixed_circular_dependency.cpp` to include it in your submission.
 
+# [Optional] Use AddressSanitizer
+
+The `CMakeLists.txt` includes a `buffer_overflow` target that links the application
+with the [Address Sanitizer](https://github.com/google/sanitizers). Depending
+on your target system, you may be able to run the application and observe
+the output.
+
 # Submission
 
 Please group the all the files within a zip. In those assignments with text
