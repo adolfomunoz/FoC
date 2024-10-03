@@ -9,9 +9,45 @@ title: Introduction to Memory Leaks
 <section>
   <h2>Goals</h2>
   <ul>
-    <li>Undestand why memory leaks occur</li>
-    <li>
-
+  <li>Understand why memory leaks occur</li>
+  <li>Learn <em>how to</em>find and fix memory leaks</li>
+  <li>use memory leak detection tools</li>
   </ul>
+</section>
+
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li>A memory leak is a heap-allocated unreachable memory location</li>
+    <li>Consequences: resource depletion and memory leaks</li>
+    <li>In large programs, very hard to detect</li>
+    <li>For large enough executions and notable leaks, after a long time
+      the operating system can kill an application that would 
+      return <em>out of memory</em> error</li>
+    <li><em>Note</em>In this topic, we will not cover buffer overflow issues</li>
+</section>
+
+<section>
+  <h2>Valgrind</h2>
+  <ul>
+    <li>Open source tool for memory leaks detection</li>
+    <li>Broadly, an instrumentation framework for building dynamic analysis tools</li>
+    <li>Other usages: profiling or concurrency issues ...</li>
+    <li>Supported in many platforms</li>
+    <li>More information available at <a href="https://valgrind.org">https://valgrind.org></a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Using Valgrind</h2>
+  <ol>
+    <li>Compile with <code>-g</code> and 0 or 1 optimization level, <code>-O[01]</code></li>
+  </ol>
+</section>
+
+
+
+<section>
+  <h2>Address Sanitizers</h2>
 
 </section>
