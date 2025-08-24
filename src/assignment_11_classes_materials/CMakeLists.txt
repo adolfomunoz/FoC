@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 if (MSVC)
-  set(MY_CPP_FLAGS /W4 /W)
+  set(MY_CPP_FLAGS /W4 /WX)
 else()
   set(MY_CPP_FLAGS -Wall -Wextra -pedantic -Werror)
 endif()
