@@ -2,3 +2,4 @@ jekyll/_site
 .vscode
 build-debug
 build-release
+build

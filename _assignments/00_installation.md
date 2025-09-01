@@ -41,7 +41,7 @@ To manually install CMake, you need to download it from [here](https://cmake.org
 
 ## git
 
-To manually install `git`, download it from [here](https://github.com/git-for-windows/git/releases/latest). You probably want the 64-bit installer, which at the moment is named `Git-2.45.2-64-bit.exe`. This will add several quality-of-life additional tools such as shell integration, a user interface and a credential manager.
+To manually install `git`, download it from [here](https://github.com/git-for-windows/git/releases/latest). You probably want the 64-bit installer, which at the moment is named `Git-2.51.0-64-bit.exe`. This will add several quality-of-life additional tools such as shell integration, a user interface and a credential manager.
 
 ## Visual Studio Code
 
