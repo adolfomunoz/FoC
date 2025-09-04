@@ -81,22 +81,31 @@ title: Memory Management
   </section>
   <section>
     <h2>Parts of a Program in Memory</h2>
+    <ul>
+    <li>According to  <a href="https://refspecs.linuxfoundation.org/elf/elf.pdf">ELF</a>, programs are divided into segments (memory), sections (linker)</li>
+    </ul> 
     <img src="{{ site.baseurl }}/img/memparts.png" height="300">
   </section>
   <section>
     <h2>Text and Operating System parts</h2>
     <ul>
     <li><b>Operating System</b>: The operating system restricts some memory area for itself</li>
-    <li><b>Text</b>: Portion of memory storing the code of our program; e.g., <q>main</q> function</li>
+    <li><b>Text</b>: Memory segment storing the code of our program; e.g., <q>main</q> function</li>
     </ul> 
   </section>
   <section>
-    <h2>Data, Heap, and Stack</h2>
+    <h2>Data, Heap, and Stack and variable scopes</h2>
     <ul>
     <li><b>Data</b>: Area storing global variables with lifetime equal to the program</li>
     <li><b>Heap</b>: Area storing variables dynamically allocated, unknown lifetime and not function limited</li>
     <li><b>Stack</b>: Area storing variables created within the scope of a function</li>
     </ul> 
+  </section>
+  <section>
+    <h2>Example of variables and their section mapping</h2>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+    {%- include src/scopes.cpp -%}
+    </script></code></pre> 
   </section>
   <section>
 	  <h2>Heap and Stack example</h2>
@@ -203,7 +212,7 @@ be very disciplined</li>
   <h2>Pointer Arithmetic</h2>
    <ul>
    <li>C++ allows arithmetic operations on pointers</li>
-    <li><code>a[i] == *(a + i * sizeof(a[0]))</code><li>
+    <li><code>a[i] == *(a + i * sizeof(a[0]))</code></li>
    </ul>
   </section>
   <section>
