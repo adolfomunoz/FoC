@@ -1,7 +1,6 @@
 ---
 title: Memory Management
 ---
-<section>
 <!--
   <section data-markdown>
     <textarea data-template>
@@ -76,24 +75,37 @@ title: Memory Management
     <h2>Quiz: What is a pointer? </h2>
     <p class="fragment">A variable that stores a memory address</p>
   </section>
+  <section> 
+    <h2>Quiz: Assuming a 64-bit address space, what are the sizes of all variables in the figure? </h2>
+    <img src="{{ site.baseurl }}/img/memquiz.png" height="300">
+  </section>
   <section>
     <h2>Parts of a Program in Memory</h2>
+    <ul>
+    <li>According to  <a href="https://refspecs.linuxfoundation.org/elf/elf.pdf">ELF</a>, programs are divided into segments (memory), sections (linker)</li>
+    </ul> 
     <img src="{{ site.baseurl }}/img/memparts.png" height="300">
   </section>
   <section>
     <h2>Text and Operating System parts</h2>
     <ul>
     <li><b>Operating System</b>: The operating system restricts some memory area for itself</li>
-    <li><b>Text</b>: Portion of memory storing the code of our program; e.g., <q>main</q> function</li>
+    <li><b>Text</b>: Memory segment storing the code of our program; e.g., <q>main</q> function</li>
     </ul> 
   </section>
   <section>
-    <h2>Data, Heap, and Stack</h2>
+    <h2>Data, Heap, and Stack and variable scopes</h2>
     <ul>
     <li><b>Data</b>: Area storing global variables with lifetime equal to the program</li>
     <li><b>Heap</b>: Area storing variables dynamically allocated, unknown lifetime and not function limited</li>
     <li><b>Stack</b>: Area storing variables created within the scope of a function</li>
     </ul> 
+  </section>
+  <section>
+    <h2>Example of variables and their section mapping</h2>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+    {%- include src/scopes.cpp -%}
+    </script></code></pre> 
   </section>
   <section>
 	  <h2>Heap and Stack example</h2>
@@ -174,24 +186,41 @@ title: Memory Management
   <h2>Pointers and Arrays</h2>
     <h4>Arrays</h4>
      <ul>
-     <li>Definition: <code>int array[3]={0, 1, 2};</code></li>
+     <li>Definition: contiguously allocated nonempty sequence of objects with a particular element type. Size
+cannot change</li>
+     <li>Example: <code>int array[3]={0, 1, 2};</code></li>
      <li><em>Normally</em>, they will be allocated in the stack</li>
+     <li>Please prefer <code>std::array</code> container over arrays</li>
      </ul>
   </section>
   <section>
   <h2>Dynamic Memory Allocation</pre></h2>
      <ul>
+      <li>Dynamic memory is stored in the heap section. Enlarges and reduces at run time</li>
       <li>Allocation:
        <pre><code>int * ptr_int = new int;</code></pre>
        <pre><code>int * array_int = new int[4];</code></pre></li>
       <li>Deallocation:
        <pre><code>delete ptr_int;</code></pre>
        <pre><code>delete [] array_int;</code></pre></li>
-      </ul> 
+      </ul>
+      <li>Manually managing dynamic memory is error-prone. Please 
+be very disciplined</li>
   </section>
 
   <section>
   <h2>Pointer Arithmetic</h2>
-       <pre><code>a[i] == *(a + i * sizeof(a[0]))</code></pre>
+   <ul>
+   <li>C++ allows arithmetic operations on pointers</li>
+    <li><code>a[i] == *(a + i * sizeof(a[0]))</code></li>
+   </ul>
   </section>
-</section>
+  <section>
+  <h2>Quiz: what is the final value of these pointers</h2>
+   <ul>
+   <em>Please assume all pointers point to address 16</em>
+   <pre><code>uint8_t *ptr; ptr+=2;</code></pre>
+   <pre><code>int *ptr; ptr=nullptr;</code></pre>
+   <pre><code>int *ptr; ptr+=3;</code></pre>
+   </ul>
+  </section>
