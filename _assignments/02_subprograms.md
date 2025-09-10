@@ -12,9 +12,9 @@ For each triangle, the user will introduce through the keybard the hypotenuse *h
 
 Assume that you don't have available the implementation of the inverse sine, so you need to approximate it through its series expansion
 
-$$ \sin^{-1}(x) = \sum_{i=0}^{\infty}\frac{(2n)!}{4^n (n!)^2 (2n+1)}x^{2n+1} .$$           
+$$ \sin^{-1}(x) = \sum_{n=0}^{\infty}\frac{(2n)!}{4^n (n!)^2 (2n+1)}x^{2n+1} .$$           
 
-Assume as well that you don't already have a function for calculating neither the factorial nor the power. We consider a sufficient approximation of the inverse cosine the use of the ten first terms of the series expansion. 
+Assume as well that you don't already have a function for calculating neither the factorial nor the power. We consider a sufficient approximation of the inverse sine the use of the ten first terms of the series expansion. 
 
 ## Command line compilation
 
