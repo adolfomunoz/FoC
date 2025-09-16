@@ -2,7 +2,6 @@
 title: Smart Pointers
 ---
 <section>
-  <section>
   <h2>Dynamic Memory Issues</h2>
     <ul>
       <li>Each <code>new</code> always requires a matching <code>delete</code></li>
@@ -21,7 +20,7 @@ title: Smart Pointers
     <h2>Possible solution</h2>
     <ul>
       <li>How we can automatically guarantee the release of the object?</li>
-      <li>Think in objects in the stack and RAII (resource adquisition is initialization)</li>
+      <li>Think in objects in the stack and RAII (Resource Adquisition Is Initialization)</li>
   </section>
 
   <section>
@@ -32,13 +31,26 @@ title: Smart Pointers
     <img src="{{ site.baseurl }}/img/scope.png" height="256">
     <em style="font-size:15%">source: <a href="https://www.oreilly.com/library/view/practical-c-programming/0596004192/ch09.html">https://www.oreilly.com/library/view/practical-c-programming/0596004192/ch09.html</a></em>
   </section>
-
-  <section>
+  
+<section>
     <h2>Quiz: What are the scopes within this program</h2>
     <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
       {%- include src/scopes.cpp -%}
     </script></code></pre> 
   </section>
+
+  <section>
+<h2><em>detour</em>: Resource Adquisition Is Initialization</h2>
+<ul>
+    <li><b><a href="https://en.cppreference.com/w/cpp/language/raii.html">RAII</a></b>: C++ idiom that joins the lifetime
+of a resource (memory, file, socket, ...) to that of an object</li>
+    <li>Is <code>ptr</code> object always released?</li>
+</ul>
+    <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+      {%- include src/raii.cpp -%}
+    </script></code></pre> 
+</section>
+
 
   <section>
     <h2>Smart Pointers</h2>
@@ -95,5 +107,4 @@ title: Smart Pointers
       <li>R.20 to R.33 from <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-owner">Cpp Core Guidelines</li>
       <li><a href="https://cppbyexample.com/what_are_smart_pointers.html">What are Smart Pointers</a>
     </ul>
-  </section>
 </section>
