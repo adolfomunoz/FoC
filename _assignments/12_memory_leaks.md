@@ -48,7 +48,7 @@ Once the clonation or the upgrade have finished, let's continue building in
 cd src/assignment_12_classes_materials
 mkdir build-debug
 cd build-debug
-cmake -DCMAKE_BUILD_TYPE=Release ../ # generate the Makefile with cmake
+cmake -DCMAKE_BUILD_TYPE=Debug ../ # generate the Makefile with cmake
 make VERBOSE=1 -j4 # compile the examples in parallel with 4 jobs
 ```
 
