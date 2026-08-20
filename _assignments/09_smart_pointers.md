@@ -18,6 +18,27 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ```
 
+The easiest approach to complete this lab is to compile with the provided
+CMake files. To follow this approach, please first clone the class' repo.
+
+```bash
+cd <your root directory for FoC repo>
+git clone git clone https://github.com/adolfomunoz/FoC.git
+cd FoC
+
+```
+
+Once the clonation has finished, let's continue building some test
+programs:
+
+```
+cd src/assignment_09_classes_materials
+mkdir build-debug
+cd build-debug
+cmake -DCMAKE_BUILD_TYPE=Debug ../ # generate the Makefile with cmake
+make -j4 # compile the examples in parallel with 4 jobs
+```
+
 Do not hesitate to contact the faculty in case of doubts about the exercises.
 
 # Identify memory leaks and remove them

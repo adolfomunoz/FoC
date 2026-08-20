@@ -30,7 +30,6 @@ to start debugging them. So these are the required commands:
 cd <your root directory for FoC repo>
 git clone git clone https://github.com/adolfomunoz/FoC.git
 cd FoC
-
 ```
 
 Once the clonation has finished, let's continue building some test

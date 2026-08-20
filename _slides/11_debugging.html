@@ -44,6 +44,25 @@ title: Introduction to Debugging
 </section>
 
 <section>
+<h2>Contract assertions (since C++26)</h2>
+<ul>
+<li>Please keep contracts for the future <a href="https://en.cppreference.com/w/cpp/language/contracts.html">you</a></li>
+<li>Contract assertions allow the specification of properties of the program state that are expected to
+be true on certain instants</li> 
+<li>example: <code>contract_assert(i > 0); </code></li>
+<li>Contracts allow to specify pre-, post-conditions and invariants</li>
+<li>Please stay tunned</li>
+</ul>
+</section>
+
+<section>
+  <h2>Example C++26 Contracts</h2>
+ <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
+ {%- include src/contracts_26.cpp -%}
+ </script></code></pre> 
+</section>
+
+<section>
   <h2>static asserts</h2>
   <ul>
     <li>C++11 introduced static asserts checked at compile time</li>
@@ -54,18 +73,6 @@ title: Introduction to Debugging
  </script></code></pre> 
 </section>
 
-<section>
-  <h2>Contracts in C++26</h2>
-  <ul>
-    <li>C++26 will provide a better form of assertions: contracts</li>
-    <li>Contracts allow to specify pre-, post-conditions and invariants</li>
-    <li>Please stay tunned</li>
-    <ul>
-  </ul>
- <pre><code class="hljs cpp" data-trim data-line-numbers><script type="text/template">
- {%- include src/contracts_26.cpp -%}
- </script></code></pre> 
-</section>
 
 <!--
 <section>
