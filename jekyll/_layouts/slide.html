@@ -6,19 +6,19 @@
 
 		<title>{{ page.title }}</title>
 
-		<link rel="stylesheet" href="{{ site.baseurl }}/external/reveal.js/dist/reset.css">
-		<link rel="stylesheet" href="{{ site.baseurl }}/external/reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="{{ site.baseurl }}/external/reveal.js/dist/theme/white.css">
+		<link rel="stylesheet" href=" {{ '/external/reveal.js/dist/reset.css' | relative_url }}">
+		<link rel="stylesheet" href=" {{ '/external/reveal.js/dist/reveal.css' | relative_url }}">
+		<link rel="stylesheet" href=" {{ '/external/reveal.js/dist/theme/white.css' | relative_url }}">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="{{ site.baseurl }}/external/reveal.js/plugin/highlight/monokai.css">
+		<link rel="stylesheet" href=" {{ '/external/reveal.js/dist/plugin/highlight/monokai.css' | relative_url }}">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section class="clean">
 					<h2>{{ page.title }}</h2>
-					<img src="{{ site.baseurl }}/{{ page.frontpage | default: site.frontpage }}" height="250px"/>
+					<img src=" {{ page.frontpage | default: site.frontpage | relative_url }}" height="250px"/>
 					<h4>{{ site.course }}</h4>
 					{{ site.author }}
 				</section>
@@ -26,10 +26,10 @@
 			</div>
 		</div>
 
-		<script src="{{ site.baseurl }}/external/reveal.js/dist/reveal.js"></script>
-		<script src="{{ site.baseurl }}/external/reveal.js/plugin/notes/notes.js"></script>
-		<script src="{{ site.baseurl }}/external/reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="{{ site.baseurl }}/external/reveal.js/plugin/highlight/highlight.js"></script>
+		<script src=" {{ '/external/reveal.js/dist/reveal.js' | relative_url }}"></script>
+		<script src=" {{ '/external/reveal.js/dist/plugin/notes.js' | relative_url }}"></script>
+		<script src=" {{ '/external/reveal.js/dist/plugin/markdown.js' | relative_url }}"></script>
+		<script src=" {{ '/external/reveal.js/dist/plugin/highlight.js' | relative_url }}"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -41,7 +41,7 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 				,dependencies: [
-				{ src: '../external/reveal.js-plugin-externalcode/externalcode.js', condition: function() { return !!document.querySelector( '[data-code]' ); } }]		});
+				{ src: "{{ '/external/reveal.js-plugin-externalcode/externalcode.js' | relative_url }}", condition: function() { return !!document.querySelector( '[data-code]' ); } }]		});
 		</script>
 		<style type="text/css">
 			/* 1. Style header/footer <div> so they are positioned as desired. */
