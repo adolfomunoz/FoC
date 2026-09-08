@@ -8,7 +8,7 @@ Develop a program that goes through a set of rectangular triangles such as this:
 
 {% include img/triangle.svg %}
 
-For each triangle, the user will introduce through the keybard the hypotenuse *h* and the side *c* and then output the angle *a* opposed to the side, in degrees. The program will end when the user introduces the data of an imposible rectangular triangle.
+For each triangle, the user will introduce through the keyboard the hypotenuse *h* and the side *c* and then the program will output the angle *a* opposed to the side, in degrees. The program will end when the user introduces the data of an imposible rectangular triangle.
 
 Assume that you don't have available the implementation of the inverse sine, so you need to approximate it through its series expansion
 
