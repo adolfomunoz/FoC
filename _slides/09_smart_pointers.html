@@ -77,7 +77,21 @@ of a resource (memory, file, socket, ...) to that of an object</li>
       {%- include src/toyptr.cpp -%}
     </script></code></pre> 
     <img src="{{ site.baseurl }}/img/smart_ptr.png" height="256">
-    <p>How many times is called <code>delete</code>?</p>
+    <p>How many times <code>delete</code> is called?</p>
+  </section>
+
+  <section>
+    <h2>C++ Memory Management Library</h2>
+    <ul>
+      <li>Introduced with C++11 and includes smart pointers, <code>#include &lt;memory&gt;</code></li>
+      <li> Three smart pointers categories:
+        <ul>
+          <li><code>std::unique_ptr&lt;T&gt;</code></li>
+          <li><code>std::shared_ptr&lt;T&gt;</code></li>
+          <li><code>std::weak_ptr&lt;T&gt;</code></li>
+        </ul>
+      </li>
+    </ul>
   </section>
 
   <section>
@@ -94,7 +108,7 @@ of a resource (memory, file, socket, ...) to that of an object</li>
     <h2><code>std::shared_ptr&lt;T&gt;</code></h2>
     <ul>
       <li>Solution for multiple pointers to the same object</li>
-      <li>Internally counts the number of refereces to the object</li>
+      <li>Internally counts the number of references to the object</li>
       <li>Allocation increases the counter, deallocation reduces the counter. When
         reaching 0, the object is deallocated</li>
       <li>Use <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared">std::make_shared</a> to create them</li>
