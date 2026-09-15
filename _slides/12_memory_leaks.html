@@ -28,6 +28,15 @@ title: Introduction to Memory Leaks
 </section>
 
 <section>
+  <h2>Memory leak example</h2>
+  <pre><code>void leak() {
+    int *ptr = new int[10]; // C++
+}</code></pre>
+  <img src="{{ site.baseurl }}/img/memory_leak.svg" alt="memory leak" height="300">
+</section>
+
+
+<section>
   <h2>Valgrind</h2>
   <ul>
     <li>Open source tool for memory leaks detection</li>
