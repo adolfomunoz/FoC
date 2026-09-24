@@ -28,7 +28,7 @@ to start debugging them. So these are the required commands:
 
 ```bash
 cd <your root directory for FoC repo>
-git clone git clone https://github.com/adolfomunoz/FoC.git
+git clone https://github.com/adolfomunoz/FoC.git
 cd FoC
 ```
 
